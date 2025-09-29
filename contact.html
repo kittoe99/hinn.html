@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact — Hinn.dev</title>
+    <meta name="description" content="Get in touch with Hinn.dev about your website project, timelines, and pricing." />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect rx="12" width="64" height="64" fill="%23d97759"/><text x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text></svg>'>
+    <meta name="theme-color" content="#d97759" />
+
+    <style>
+      :root {
+        /* Light theme with slightly darker page background */
+        --bg-page: #fff7f0; /* sitewide background matches panels */
+        --panel: #fff7f0;   /* warm-tinted panels */
+        --panel-hover: #f9efe6;
+        --border: #e6d6c8;
+        --accent: #d97759;
+        --background: var(--bg-page);
+        --foreground: #0a0a0a;
+
+        --accent-primary: var(--accent);
+        --accent-hover: color-mix(in srgb, var(--accent) 85%, #000000);
+        --accent-subtle: color-mix(in srgb, var(--accent) 8%, #ffffff);
+        --accent-muted: color-mix(in srgb, var(--accent) 15%, #ffffff);
+        --accent-soft: color-mix(in srgb, var(--accent) 25%, #ffffff);
+
+        --text-primary: #0a0a0a;
+        --text-secondary: #404040;
+        --text-tertiary: #6b6b6b;
+        --text-accent: var(--accent-primary);
+
+        --success-accent: var(--accent-primary);
+        --success-bg: var(--accent-subtle);
+        --success-border: var(--accent-soft);
+        --success-pill-bg: var(--accent-muted);
+        --success-pill-text: color-mix(in srgb, var(--accent) 75%, #000000);
+      }
+
+      html, body { background-color: var(--bg-page); }
+      body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; color: var(--text-secondary); }
+      .text-primary { color: var(--text-primary); }
+      .text-secondary { color: var(--text-secondary); }
+      .text-tertiary { color: var(--text-tertiary); }
+      .bg-panel { background-color: var(--panel); }
+      .border-soft { border-color: var(--border); }
+      .bg-accent-primary { background-color: var(--accent-primary); }
+      .text-accent-primary { color: var(--accent-primary); }
+      .ring-accent-primary { --tw-ring-color: var(--accent-primary); }
+      .shadow-soft { box-shadow: 0 1px 1.5px rgba(0,0,0,0.03), 0 1.5px 6px rgba(0,0,0,0.05); }
+      .shadow-hover { transition: box-shadow .2s ease; box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 3px 10px rgba(0,0,0,.06); }
+      .shadow-hover:hover { box-shadow: 0 3px 6px rgba(0,0,0,.05), 0 6px 16px rgba(0,0,0,.10); }
+      /* Warm utility bridges for Tailwind neutrals */
+      .bg-white { background-color: var(--panel) !important; }
+      .hover\:bg-neutral-50:hover { background-color: var(--panel-hover) !important; }
+      .ring-neutral-200 { --tw-ring-color: var(--border) !important; }
+      .border-neutral-200, .border-neutral-300 { border-color: var(--border) !important; }
+
+      /* Unified button design */
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        padding: .7rem 1.1rem; border-radius: 9999px; font-weight: 600;
+        transition: all .2s ease; text-decoration: none; gap: .5rem;
+      }
+      .btn-primary { background: var(--accent-primary); color: #fff; box-shadow: 0 6px 20px rgba(217,119,89,.18); }
+      .btn-primary:hover { filter: brightness(.98); transform: translateY(-1px); box-shadow: 0 8px 26px rgba(217,119,89,.22); }
+      .btn-primary:active { transform: translateY(0); box-shadow: 0 3px 10px rgba(217,119,89,.18); }
+      .btn-outline { background: transparent; color: var(--accent-primary); border: 1px solid var(--accent-soft); }
+      .btn-outline:hover { background: var(--accent-subtle); border-color: var(--accent-soft); }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-40 bg-page-90 backdrop-blur border-b border-soft">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        <a href="./index.html" class="flex items-center gap-2 font-semibold tracking-tight text-primary">
+          <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="rounded-md"><rect rx="12" width="64" height="64" fill="#d97759"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text></svg>
+          <span aria-hidden="true">Hinn.dev</span>
+        </a>
+        <nav class="hidden sm:flex items-center gap-6 text-sm" aria-label="Primary">
+          <a href="./index.html#work" class="hover:text-accent-primary">Work</a>
+          <a href="./index.html#features" class="hover:text-accent-primary">Services</a>
+          <a href="./index.html#pricing" class="hover:text-accent-primary">Pricing</a>
+          <a href="./index.html#faq" class="hover:text-accent-primary">FAQ</a>
+          <a href="./contact.html" class="hover:text-accent-primary">Contact</a>
+        </nav>
+        <a href="./index.html#get-started" class="hidden sm:inline-flex btn btn-primary">Get started</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+          <header class="mb-8">
+            <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight text-primary">Contact</h1>
+            <p class="mt-2 text-secondary max-w-2xl">Have a project in mind? Let’s talk about goals, timelines, and what’s included.</p>
+          </header>
+
+          <div class="grid md:grid-cols-3 gap-6 items-start">
+            <div class="md:col-span-2 rounded-2xl bg-white ring-1 ring-gray-200 p-6 shadow-soft">
+              <form id="contact-form" class="space-y-4" autocomplete="on">
+                <div>
+                  <label for="name" class="block text-sm font-medium text-primary">Your name</label>
+                  <input id="name" name="name" type="text" placeholder="Jane Doe" class="mt-1 w-full rounded-lg border border-soft px-3 py-2" required />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-medium text-primary">Email</label>
+                  <input id="email" name="email" type="email" placeholder="jane@company.com" class="mt-1 w-full rounded-lg border border-soft px-3 py-2" required />
+                </div>
+                <div>
+                  <label for="message" class="block text-sm font-medium text-primary">Message</label>
+                  <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..." class="mt-1 w-full rounded-lg border border-soft px-3 py-2"></textarea>
+                </div>
+                <div class="flex gap-3">
+                  <button type="submit" class="btn btn-primary">Send</button>
+                  <a href="mailto:hello@hinn.dev" class="btn btn-outline">Email us</a>
+                </div>
+                <p class="text-xs text-tertiary">Submitting opens your email app with a pre-filled message.</p>
+              </form>
+            </div>
+
+            <aside class="rounded-2xl bg-panel ring-1 ring-gray-200 p-6">
+              <h2 class="text-lg font-semibold text-primary">Details</h2>
+              <ul class="mt-3 space-y-2 text-sm">
+                <li><span class="text-tertiary">Email:</span> <a href="mailto:hello@hinn.dev" class="text-accent-primary hover:underline">hello@hinn.dev</a></li>
+                <li><span class="text-tertiary">Hours:</span> Mon–Fri, 9am–5pm</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-10 border-t border-soft">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-tertiary">
+        <div>© <span id="y"></span> Hinn.dev. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-accent-primary">Privacy</a>
+          <a href="#" class="hover:text-accent-primary">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+      document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const subject = encodeURIComponent(`Website inquiry from ${name || 'someone'}`);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        window.location.href = `mailto:hello@hinn.dev?subject=${subject}&body=${body}`;
+      });
+    </script>
+  </body>
+</html>
