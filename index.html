@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
   <head>
@@ -82,6 +81,7 @@
       /* Page background helpers */
       .bg-page { background-color: var(--bg-page); }
       .bg-page-90 { background-color: color-mix(in srgb, var(--bg-page) 90%, transparent); }
+      .bg-true-white { background-color: #ffffff !important; }
 
       /* Unified button design */
       .btn {
@@ -94,6 +94,8 @@
       .btn-primary:active { transform: translateY(0); box-shadow: 0 3px 10px rgba(217,119,89,.18); }
       .btn-outline { background: transparent; color: var(--accent-primary); border: 1px solid var(--accent-soft); }
       .btn-outline:hover { background: var(--accent-subtle); border-color: var(--accent-soft); }
+      .btn-white { background: #ffffff; color: var(--accent-primary); border: 1px solid var(--accent-soft); }
+      .btn-white:hover { background: color-mix(in srgb, #ffffff 90%, var(--accent-subtle)); }
 
       /* Map existing utility patterns to new button look */
       a.bg-accent-primary, button.bg-accent-primary { border-radius: 9999px; font-weight: 600; box-shadow: 0 6px 20px rgba(217,119,89,.18); }
@@ -122,7 +124,7 @@
           <span class="sr-only">Hinn.dev</span>
           <span aria-hidden="true">Hinn.dev</span>
         </a>
-        <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-sm text-neutral-900 bg-white" aria-label="Primary">
+        <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-sm text-neutral-900" aria-label="Primary">
           <a href="#overview" class="px-2 py-2 rounded-md hover:bg-neutral-50 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">Overview</a>
           <!-- Features (megamenu) -->
           <div class="relative" id="features-container">
@@ -182,14 +184,14 @@
               </div>
             </div>
           </div>
-          <a href="./contact.html" class="px-2 py-2 rounded-md hover:bg-neutral-50 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">Contact</a>
+          
         </nav>
         <div class="hidden md:flex items-center gap-2 lg:gap-3">
-          <a href="./get-started.html" class="btn btn-outline">
+          <a href="./get-started.html" class="btn btn-white">
             <span>Get Started Today</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
           </a>
-          <a href="./contact.html" class="btn btn-primary">Login</a>
+          <a href="./get-started.html" class="btn btn-primary">Login</a>
         </div>
         <div class="flex md:hidden items-center gap-2">
           <button id="menu-button" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
@@ -204,13 +206,12 @@
         <nav class="px-4 py-3 space-y-1 text-sm" aria-label="Mobile">
           <a href="#overview" class="block px-2 py-2 rounded hover:bg-panel">Overview</a>
           <a href="#showcase" class="block px-2 py-2 rounded hover:bg-panel">Showcase</a>
-          <a href="./contact.html" class="block px-2 py-2 rounded hover:bg-panel">Contact</a>
-          <div class="p-3.5 flex flex-col gap-2 bg-white">
-            <a href="./contact.html" class="btn btn-outline w-full">
+          <div class="p-3.5 flex flex-col gap-2">
+            <a href="./get-started.html" class="btn btn-outline w-full">
               <span>Get Started Today</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
             </a>
-            <a href="./contact.html" class="btn btn-primary w-full text-center">Login</a>
+            <a href="./get-started.html" class="btn btn-primary w-full text-center">Login</a>
           </div>
         </nav>
       </div>
@@ -222,7 +223,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
           <div class="max-w-3xl mx-auto">
             <div class="text-center">
-              <span class="inline-flex items-center gap-2 rounded-full ring-1 ring-gray-200 bg-white px-3 py-1 text-xs text-gray-600 shadow-soft">No setup fees • Cancel anytime</span>
+              <span class="inline-flex items-center gap-2 rounded-full ring-1 ring-gray-200 bg-true-white px-3 py-1 text-xs text-gray-600 shadow-soft">No setup fees • Cancel anytime</span>
               <h1 class="mt-4 text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-primary">
                 Pay‑by‑month websites
                 <span class="block text-accent-primary whitespace-nowrap">
@@ -238,7 +239,7 @@
                   Get started
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="ml-2 h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </a>
-                <a href="#showcase" class="btn btn-outline">
+                <a href="#showcase" class="btn btn-white">
                   See showcase
                 </a>
               </div>
@@ -574,436 +575,3 @@
     </script>
   </body>
 </html>
-=======
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hinn.dev — Monthly websites, hosting and updates</title>
-    <meta name="description" content="Launch a professional site with monthly design, hosting, updates, and support — no upfront build cost." />
-
-    <!-- Tailwind CSS via CDN (for a static HTML workflow) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Inter font via Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Favicon (inline SVG matching accent color) -->
-    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect rx="12" width="64" height="64" fill="%23d97759"/><text x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text></svg>'>
-    <meta name="theme-color" content="#d97759" />
-
-    <!-- Theme tokens adapted from hinn.io (not pixel-identical) -->
-    <style>
-      :root {
-        --bg-page: #fefefe;
-        --panel: #f9f9f9;
-        --panel-hover: #f5f5f5;
-        --border: #e5e5e5;
-        --accent: #d97759; /* coral */
-        --background: var(--bg-page);
-        --foreground: #0a0a0a;
-        --text-primary: #0a0a0a;
-        --text-secondary: #404040;
-        --text-tertiary: #6b6b6b;
-        --accent-primary: var(--accent);
-        --accent-hover: color-mix(in srgb, var(--accent) 85%, #000);
-        --accent-subtle: color-mix(in srgb, var(--accent) 8%, #fff);
-        --accent-muted: color-mix(in srgb, var(--accent) 15%, #fff);
-        --accent-soft: color-mix(in srgb, var(--accent) 25%, #fff);
-      }
-      html, body { background-color: var(--bg-page); }
-      body {
-        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-        color: var(--text-secondary);
-      }
-      /* Utility classes to mirror the theme */
-      .text-primary { color: var(--text-primary); }
-      .text-secondary { color: var(--text-secondary); }
-      .text-tertiary { color: var(--text-tertiary); }
-      .bg-panel { background-color: var(--panel); }
-      .hover\:bg-panel-hover:hover { background-color: var(--panel-hover); }
-      .border-soft { border-color: var(--border); }
-      .bg-accent-primary { background-color: var(--accent-primary); }
-      .text-accent-primary { color: var(--accent-primary); }
-      .ring-accent-primary { --tw-ring-color: var(--accent-primary); }
-      .shadow-soft { box-shadow: 0 1px 1.5px rgba(0,0,0,0.03), 0 1.5px 6px rgba(0,0,0,0.05); }
-      .shadow-hover { transition: box-shadow .2s ease; box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 3px 10px rgba(0,0,0,.06); }
-      .shadow-hover:hover { box-shadow: 0 3px 6px rgba(0,0,0,.05), 0 6px 16px rgba(0,0,0,.10); }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      .no-scrollbar::-webkit-scrollbar { display: none; }
-    </style>
-  </head>
-  <body class="min-h-screen">
-    <!-- Site header -->
-    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-soft">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        <a href="#" class="flex items-center gap-2 font-semibold tracking-tight text-primary">
-          <!-- Inline SVG logo -->
-          <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="rounded-md">
-            <rect rx="12" width="64" height="64" fill="#d97759"/>
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text>
-          </svg>
-          <span class="sr-only">Hinn.dev</span>
-          <span aria-hidden="true">Hinn.dev</span>
-        </a>
-        <nav class="hidden sm:flex items-center gap-6 text-sm" aria-label="Primary">
-          <a href="#work" class="hover:text-accent-primary">Work</a>
-          <a href="#features" class="hover:text-accent-primary">Services</a>
-          <a href="#pricing" class="hover:text-accent-primary">Pricing</a>
-          <a href="#faq" class="hover:text-accent-primary">FAQ</a>
-          <a href="./blog.html" class="hover:text-accent-primary">Blog</a>
-          <a href="./contact.html" class="hover:text-accent-primary">Contact</a>
-        </nav>
-        <div class="flex items-center gap-2">
-          <button id="menu-button" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-            <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-          <a href="#get-started" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-accent-primary px-3.5 py-2 text-white text-sm font-medium hover:opacity-95 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Get started</a>
-        </div>
-      </div>
-      <!-- Mobile menu panel -->
-      <div id="mobile-menu" class="sm:hidden hidden border-t border-soft bg-white" role="dialog" aria-modal="true">
-        <nav class="px-4 py-3 space-y-1 text-sm" aria-label="Mobile">
-          <a href="#work" class="block px-2 py-2 rounded hover:bg-panel">Work</a>
-          <a href="#features" class="block px-2 py-2 rounded hover:bg-panel">Services</a>
-          <a href="#pricing" class="block px-2 py-2 rounded hover:bg-panel">Pricing</a>
-          <a href="#faq" class="block px-2 py-2 rounded hover:bg-panel">FAQ</a>
-          <a href="./blog.html" class="block px-2 py-2 rounded hover:bg-panel">Blog</a>
-          <a href="./contact.html" class="block px-2 py-2 rounded hover:bg-panel">Contact</a>
-          <a href="#get-started" class="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-accent-primary px-3.5 py-2 text-white font-medium hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Get started</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- Hero -->
-      <section class="bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-          <div class="grid md:grid-cols-2 gap-10 items-start">
-            <div>
-              <span class="inline-flex items-center gap-2 rounded-full ring-1 ring-gray-200 bg-white px-3 py-1 text-xs text-gray-600 shadow-soft">No setup fees • Cancel anytime</span>
-              <h1 class="mt-4 text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-primary">
-                Pay-by-month websites
-                <span class="block text-accent-primary">design, hosting, updates</span>
-              </h1>
-              <p class="mt-4 text-base md:text-lg text-secondary max-w-xl">
-                Launch a professional site without large upfront costs. One simple monthly plan covers design,
-                hosting, updates, and support—so you can focus on your business.
-              </p>
-              <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="#get-started" class="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-accent-primary text-white text-sm md:text-base font-medium hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">
-                  Get started
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="ml-2 h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-                <a href="#features" class="inline-flex items-center justify-center px-5 py-3 rounded-lg ring-1 ring-gray-200 text-accent-primary bg-white text-sm md:text-base gap-2 hover:bg-panel focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">
-                  See what’s included
-                </a>
-              </div>
-              <ul class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm text-secondary max-w-2xl">
-                <li class="flex items-center gap-2"><svg class="h-4 w-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Design + build included</span></li>
-                <li class="flex items-center gap-2"><svg class="h-4 w-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Managed hosting & SSL</span></li>
-                <li class="flex items-center gap-2"><svg class="h-4 w-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Monthly content updates</span></li>
-              </ul>
-            </div>
-            <div>
-              <div class="group relative h-72 md:h-96 rounded-xl overflow-hidden shadow-soft">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Collaborative workspace" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"/>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sticky section tabs -->
-      <div class="sticky top-16 z-30 mt-4">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 flex justify-center">
-          <div
-            id="section-tabs"
-            class="inline-flex max-w-full overflow-x-auto no-scrollbar gap-1.5 rounded-full bg-white px-2 py-2 text-sm sm:text-base text-neutral-800 whitespace-nowrap shadow-soft"
-            role="tablist"
-            aria-label="Section tabs"
-          >
-            <a href="#work" data-target="work" role="tab" aria-selected="false"
-               class="px-3 sm:px-4 py-1.5 rounded-full border border-transparent text-neutral-800 hover:text-accent-primary hover:bg-[color:var(--accent-subtle)] transition">
-              Work
-            </a>
-            <a href="#create" data-target="create" role="tab" aria-selected="false"
-               class="px-3 sm:px-4 py-1.5 rounded-full border border-transparent text-neutral-800 hover:text-accent-primary hover:bg-[color:var(--accent-subtle)] transition">
-              Create
-            </a>
-            <a href="#features" data-target="features" role="tab" aria-selected="false"
-               class="px-3 sm:px-4 py-1.5 rounded-full border border-transparent text-neutral-800 hover:text-accent-primary hover:bg-[color:var(--accent-subtle)] transition">
-              Features
-            </a>
-            <a href="#pricing" data-target="pricing" role="tab" aria-selected="false"
-               class="px-3 sm:px-4 py-1.5 rounded-full border border-transparent text-neutral-800 hover:text-accent-primary hover:bg-[color:var(--accent-subtle)] transition">
-              Pricing
-            </a>
-            <a href="#faq" data-target="faq" role="tab" aria-selected="false"
-               class="px-3 sm:px-4 py-1.5 rounded-full border border-transparent text-neutral-800 hover:text-accent-primary hover:bg-[color:var(--accent-subtle)] transition">
-              FAQ
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Showcase teaser -->
-      <section id="work" class="py-12 sm:py-16">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <header class="mb-6 text-center">
-            <div class="text-xs uppercase tracking-wider text-tertiary">Showcase</div>
-            <h2 class="mt-1 text-xl sm:text-2xl font-semibold tracking-tight text-primary">Selected work</h2>
-            <p class="mt-1 text-sm text-secondary max-w-2xl mx-auto">Fast and responsive websites.</p>
-          </header>
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-            <a href="#" class="group rounded-lg ring-1 ring-gray-200 bg-white overflow-hidden transition-all duration-300 hover:ring-[color:var(--accent-soft)] focus:outline-none">
-              <div class="relative h-28 bg-gray-200">
-                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="Aurora Fitness" class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="p-3">
-                <div class="text-sm font-medium text-primary truncate" title="Aurora Fitness">Aurora Fitness</div>
-                <div class="text-xs text-tertiary">Wellness</div>
-              </div>
-            </a>
-            <a href="#" class="group rounded-lg ring-1 ring-gray-200 bg-white overflow-hidden transition-all duration-300 hover:ring-[color:var(--accent-soft)] focus:outline-none">
-              <div class="relative h-28 bg-gray-200">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Summit Outdoors" class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="p-3">
-                <div class="text-sm font-medium text-primary truncate" title="Summit Outdoors">Summit Outdoors</div>
-                <div class="text-xs text-tertiary">Outdoors</div>
-              </div>
-            </a>
-            <a href="#" class="group rounded-lg ring-1 ring-gray-200 bg-white overflow-hidden transition-all duration-300 hover:ring-[color:var(--accent-soft)] focus:outline-none">
-              <div class="relative h-28 bg-gray-200">
-                <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop" alt="Bluegrain Coffee Co." class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="p-3">
-                <div class="text-sm font-medium text-primary truncate" title="Bluegrain Coffee Co.">Bluegrain Coffee Co.</div>
-                <div class="text-xs text-tertiary">Hospitality</div>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Create section (copywriting adapted) -->
-      <section id="features" class="py-12 sm:py-20 bg-panel">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <header class="mb-10">
-            <div class="text-xs uppercase tracking-wider text-tertiary">Create</div>
-            <h2 class="mt-1 text-2xl md:text-3xl font-semibold tracking-tight text-primary">Launch a professional site without code</h2>
-            <p class="mt-2 text-secondary max-w-2xl">We handle structure, visuals, and monthly content updates so you can focus on your business. Everything is responsive and easy to evolve.</p>
-          </header>
-          <!-- Anchor target for the Create tab -->
-          <div id="create" class="-mt-16 pt-16"></div>
-          <div class="grid md:grid-cols-2 gap-6 md:gap-10 items-start">
-            <div class="rounded-xl overflow-hidden border border-soft bg-white shadow-soft">
-              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop" alt="No-code building" class="h-72 w-full object-cover">
-            </div>
-            <div>
-              <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-primary">Highly engaging sites without programming skills</h3>
-              <p class="mt-3 text-secondary">Easily create and edit your site with simple content updates each month. Everything looks great and scales perfectly on any device.</p>
-              <ul class="mt-4 text-sm text-secondary space-y-2">
-                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-accent-primary inline-block"></span><span>Monthly content updates included</span></li>
-                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-accent-primary inline-block"></span><span>Responsive layouts for all devices</span></li>
-                <li class="flex items-start gap-2"><span class="mt-1 h-2 w-2 rounded-full bg-accent-primary inline-block"></span><span>No code required</span></li>
-              </ul>
-              <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="#get-started" class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg bg-accent-primary text-white font-medium hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Start monthly plan</a>
-                <a href="#work" class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-soft text-accent-primary bg-white gap-2 font-medium hover:bg-panel focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">
-                  <span>View recent work</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Feature grid -->
-      <section class="py-12 sm:py-20">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <header class="mb-8 text-center">
-            <div class="text-xs uppercase tracking-wider text-tertiary">Features</div>
-            <h2 class="mt-1 text-2xl md:text-3xl font-semibold tracking-tight text-primary">Everything you need to grow</h2>
-            <p class="mt-2 text-secondary max-w-2xl mx-auto">From your website to sales automation and payments—built in, simple to use, and ready to scale.</p>
-          </header>
-          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
-            <div class="group p-5 rounded-xl ring-1 ring-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:ring-[color:var(--accent-soft)] shadow-soft hover:shadow-hover">
-              <div class="h-24 mb-3 rounded-lg bg-panel border border-soft"></div>
-              <div class="text-sm font-medium text-tertiary">Website</div>
-              <h3 class="mt-2 text-lg font-semibold text-primary">Design, hosting, and updates</h3>
-              <p class="mt-2 text-sm text-secondary">Launch fast with professional design and monthly updates included.</p>
-            </div>
-            <div class="group p-5 rounded-xl ring-1 ring-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:ring-[color:var(--accent-soft)] shadow-soft hover:shadow-hover">
-              <div class="h-24 mb-3 rounded-lg bg-panel border border-soft"></div>
-              <div class="text-sm font-medium text-tertiary">Sales & Automation <span class="ml-1 inline-flex items-center rounded-full bg-[color:var(--accent-subtle)] text-accent-primary px-2 py-0.5 text-[10px] uppercase tracking-wide font-medium">Soon</span></div>
-              <h3 class="mt-2 text-lg font-semibold text-primary">Funnels, forms, workflows</h3>
-              <p class="mt-2 text-sm text-secondary">Capture leads and automate follow‑ups without extra tools.</p>
-            </div>
-            <div class="group p-5 rounded-xl ring-1 ring-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:ring-[color:var(--accent-soft)] shadow-soft hover:shadow-hover">
-              <div class="h-24 mb-3 rounded-lg bg-panel border border-soft"></div>
-              <div class="text-sm font-medium text-tertiary">Artificial Intelligence <span class="ml-1 inline-flex items-center rounded-full bg-[color:var(--accent-subtle)] text-accent-primary px-2 py-0.5 text-[10px] uppercase tracking-wide font-medium">Soon</span></div>
-              <h3 class="mt-2 text-lg font-semibold text-primary">Content, insights, assistance</h3>
-              <p class="mt-2 text-sm text-secondary">Speed up content, find insights, and get helpful suggestions.</p>
-            </div>
-            <div class="group p-5 rounded-xl ring-1 ring-gray-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:ring-[color:var(--accent-soft)] shadow-soft hover:shadow-hover">
-              <div class="h-24 mb-3 rounded-lg bg-panel border border-soft"></div>
-              <div class="text-sm font-medium text-tertiary">Payments <span class="ml-1 inline-flex items-center rounded-full bg-[color:var(--accent-subtle)] text-accent-primary px-2 py-0.5 text-[10px] uppercase tracking-wide font-medium">Soon</span></div>
-              <h3 class="mt-2 text-lg font-semibold text-primary">Subscriptions & one‑time</h3>
-              <p class="mt-2 text-sm text-secondary">Sell plans or services with simple, integrated checkout.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      
-
-      <!-- Simple pricing callout -->
-      <section id="pricing" class="py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <div class="rounded-2xl bg-white ring-1 ring-gray-200 p-6 sm:p-8 shadow-soft grid md:grid-cols-3 gap-6 items-center">
-            <div class="md:col-span-2">
-              <h3 class="text-xl md:text-2xl font-semibold text-primary">Simple monthly pricing</h3>
-              <p class="mt-2 text-secondary">Everything included: design, hosting, updates, and support. No hidden fees.</p>
-            </div>
-            <div class="flex md:justify-end">
-              <a href="#get-started" class="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-accent-primary text-white font-medium hover:opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">
-                Start now
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- FAQ -->
-      <section id="faq" class="py-12 sm:py-20">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6">
-          <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-primary">FAQ</h2>
-          <div class="mt-6 space-y-4">
-            <details class="group rounded-xl ring-1 ring-gray-200 bg-white p-4 shadow-soft">
-              <summary class="cursor-pointer font-medium text-primary flex items-center justify-between">
-                What's included in the monthly plan?
-                <span class="ml-3 text-tertiary group-open:rotate-180 transition-transform">▾</span>
-              </summary>
-              <div class="mt-2 text-sm text-secondary">Design, hosting, SSL, and monthly content updates with support.</div>
-            </details>
-            <details class="group rounded-xl ring-1 ring-gray-200 bg-white p-4 shadow-soft">
-              <summary class="cursor-pointer font-medium text-primary flex items-center justify-between">
-                Can I cancel anytime?
-                <span class="ml-3 text-tertiary group-open:rotate-180 transition-transform">▾</span>
-              </summary>
-              <div class="mt-2 text-sm text-secondary">Yes, there are no long‑term contracts—you can cancel whenever you like.</div>
-            </details>
-            <details class="group rounded-xl ring-1 ring-gray-200 bg-white p-4 shadow-soft">
-              <summary class="cursor-pointer font-medium text-primary flex items-center justify-between">
-                Do you work with my existing brand?
-                <span class="ml-3 text-tertiary group-open:rotate-180 transition-transform">▾</span>
-              </summary>
-              <div class="mt-2 text-sm text-secondary">We'll align the site with your brand and adjust layouts to fit your content.</div>
-            </details>
-          </div>
-        </div>
-      </section>
-      
-
-    </main>
-
-    <footer class="py-10 border-t border-soft">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-tertiary">
-        <div>© <span id="y"></span> Hinn.dev. All rights reserved.</div>
-        <div class="flex items-center gap-4">
-          <a href="#" class="hover:text-accent-primary">Privacy</a>
-          <a href="#" class="hover:text-accent-primary">Terms</a>
-        </div>
-      </div>
-    </footer>
-
-    <script>
-      // Year in footer
-      document.getElementById('y').textContent = new Date().getFullYear();
-
-      // Mobile menu toggle
-      const menuButton = document.getElementById('menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const iconMenu = document.getElementById('icon-menu');
-      const iconClose = document.getElementById('icon-close');
-
-      function setMenu(open) {
-        if (open) {
-          mobileMenu.classList.remove('hidden');
-          menuButton.setAttribute('aria-expanded', 'true');
-          iconMenu.classList.add('hidden');
-          iconClose.classList.remove('hidden');
-        } else {
-          mobileMenu.classList.add('hidden');
-          menuButton.setAttribute('aria-expanded', 'false');
-          iconMenu.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
-      }
-
-      let open = false;
-      menuButton?.addEventListener('click', () => {
-        open = !open;
-        setMenu(open);
-      });
-
-      // Close menu when resizing to >= sm breakpoint
-      window.addEventListener('resize', () => {
-        if (window.innerWidth >= 640 && open) {
-          open = false;
-          setMenu(false);
-        }
-      });
-
-      // Sticky tabs active state on scroll
-      const tabs = Array.from(document.querySelectorAll('#section-tabs [role="tab"]'));
-      const targets = ['work','create','features','pricing','faq'];
-
-      function setActiveTab(id) {
-        tabs.forEach(t => {
-          const on = t.getAttribute('data-target') === id;
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-          t.classList.toggle('bg-[color:var(--accent-subtle)]', on);
-          t.classList.toggle('text-accent-primary', on);
-          t.classList.toggle('border', true);
-          t.classList.toggle('border-[color:var(--accent-soft)]', on);
-          t.classList.toggle('border-transparent', !on);
-          t.classList.toggle('font-medium', on);
-        });
-      }
-
-      function computeActive() {
-        const centerY = (window.innerHeight || document.documentElement.clientHeight) * 0.35;
-        let bestId = null;
-        let bestDist = Infinity;
-        targets.forEach(id => {
-          const el = document.getElementById(id);
-          if (!el) return;
-          const rect = el.getBoundingClientRect();
-          const dist = Math.abs(rect.top - centerY);
-          if (dist < bestDist) { bestDist = dist; bestId = id; }
-        });
-        if (bestId) setActiveTab(bestId);
-      }
-
-      computeActive();
-      window.addEventListener('scroll', () => { window.requestAnimationFrame(computeActive); }, { passive: true });
-      window.addEventListener('resize', computeActive, { passive: true });
-
-      // Click -> set active immediately (for better feedback)
-      tabs.forEach(t => t.addEventListener('click', () => {
-        const id = t.getAttribute('data-target');
-        if (id) setActiveTab(id);
-      }));
-    </script>
-  </body>
-</html>
->>>>>>> fc28cde (Add files via upload)
