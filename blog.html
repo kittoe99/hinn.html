@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Blog — Hinn.dev</title>
+    <meta name="description" content="Insights and updates from Hinn.dev on websites, design, performance, and growth." />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect rx="12" width="64" height="64" fill="%23d97759"/><text x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text></svg>'>
+    <meta name="theme-color" content="#d97759" />
+
+    <style>
+      :root {
+        --bg-page: #fefefe;
+        --panel: #f9f9f9;
+        --panel-hover: #f5f5f5;
+        --border: #e5e5e5;
+        --accent: #d97759;
+        --background: var(--bg-page);
+        --foreground: #0a0a0a;
+        --text-primary: #0a0a0a;
+        --text-secondary: #404040;
+        --text-tertiary: #6b6b6b;
+        --accent-primary: var(--accent);
+        --accent-hover: color-mix(in srgb, var(--accent) 85%, #000);
+        --accent-subtle: color-mix(in srgb, var(--accent) 8%, #fff);
+        --accent-muted: color-mix(in srgb, var(--accent) 15%, #fff);
+        --accent-soft: color-mix(in srgb, var(--accent) 25%, #fff);
+      }
+      html, body { background-color: var(--bg-page); }
+      body { font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; color: var(--text-secondary); }
+      .text-primary { color: var(--text-primary); }
+      .text-secondary { color: var(--text-secondary); }
+      .text-tertiary { color: var(--text-tertiary); }
+      .bg-panel { background-color: var(--panel); }
+      .border-soft { border-color: var(--border); }
+      .bg-accent-primary { background-color: var(--accent-primary); }
+      .text-accent-primary { color: var(--accent-primary); }
+      .ring-accent-primary { --tw-ring-color: var(--accent-primary); }
+      .shadow-soft { box-shadow: 0 1px 1.5px rgba(0,0,0,0.03), 0 1.5px 6px rgba(0,0,0,0.05); }
+      .shadow-hover { transition: box-shadow .2s ease; box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 3px 10px rgba(0,0,0,.06); }
+      .shadow-hover:hover { box-shadow: 0 3px 6px rgba(0,0,0,.05), 0 6px 16px rgba(0,0,0,.10); }
+    </style>
+  </head>
+  <body class="min-h-screen">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-soft">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        <a href="./index.html" class="flex items-center gap-2 font-semibold tracking-tight text-primary">
+          <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="rounded-md"><rect rx="12" width="64" height="64" fill="#d97759"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text></svg>
+          <span aria-hidden="true">Hinn.dev</span>
+        </a>
+        <nav class="hidden sm:flex items-center gap-6 text-sm" aria-label="Primary">
+          <a href="./index.html#work" class="hover:text-accent-primary">Work</a>
+          <a href="./index.html#features" class="hover:text-accent-primary">Services</a>
+          <a href="./index.html#pricing" class="hover:text-accent-primary">Pricing</a>
+          <a href="./index.html#faq" class="hover:text-accent-primary">FAQ</a>
+          <a href="./blog.html" class="hover:text-accent-primary">Blog</a>
+          <a href="./contact.html" class="hover:text-accent-primary">Contact</a>
+        </nav>
+        <a href="./index.html#get-started" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-accent-primary px-3.5 py-2 text-white text-sm font-medium hover:opacity-95 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Get started</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
+          <header class="mb-8">
+            <h1 class="text-3xl sm:text-4xl font-semibold tracking-tight text-primary">Blog</h1>
+            <p class="mt-2 text-secondary max-w-2xl">Articles about design, performance, sites that convert, and studio updates.</p>
+          </header>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Post card 1 -->
+            <article class="rounded-2xl bg-white ring-1 ring-gray-200 p-5 shadow-soft">
+              <div class="h-40 rounded-lg bg-panel border border-soft"></div>
+              <h2 class="mt-4 text-lg font-semibold text-primary">Launching fast with monthly plans</h2>
+              <p class="mt-2 text-sm text-secondary">How a pay-by-month approach gets your site live sooner without heavy upfront cost.</p>
+              <div class="mt-3 text-xs text-tertiary">5 min read</div>
+            </article>
+            <!-- Post card 2 -->
+            <article class="rounded-2xl bg-white ring-1 ring-gray-200 p-5 shadow-soft">
+              <div class="h-40 rounded-lg bg-panel border border-soft"></div>
+              <h2 class="mt-4 text-lg font-semibold text-primary">What makes a site feel fast</h2>
+              <p class="mt-2 text-sm text-secondary">A practical overview of perceived performance and how we optimize for it.</p>
+              <div class="mt-3 text-xs text-tertiary">7 min read</div>
+            </article>
+            <!-- Post card 3 -->
+            <article class="rounded-2xl bg-white ring-1 ring-gray-200 p-5 shadow-soft">
+              <div class="h-40 rounded-lg bg-panel border border-soft"></div>
+              <h2 class="mt-4 text-lg font-semibold text-primary">Writing copy that converts</h2>
+              <p class="mt-2 text-sm text-secondary">Clear offers and structure lead to better conversions. Here’s our formula.</p>
+              <div class="mt-3 text-xs text-tertiary">6 min read</div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-10 border-t border-soft">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-tertiary">
+        <div>© <span id="y"></span> Hinn.dev. All rights reserved.</div>
+        <div class="flex items-center gap-4">
+          <a href="#" class="hover:text-accent-primary">Privacy</a>
+          <a href="#" class="hover:text-accent-primary">Terms</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('y').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
