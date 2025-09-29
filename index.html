@@ -202,8 +202,8 @@
           <a href="./get-started.html" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-accent-primary px-3.5 py-2 text-white text-sm font-medium hover:opacity-95 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Get started</a>
         </div>
       </div>
-      <!-- Mobile menu panel -->
-      <div id="mobile-menu" class="sm:hidden hidden border-t border-soft bg-white" role="dialog" aria-modal="true">
+      <!-- Mobile menu panel (overlay, does not push layout) -->
+      <div id="mobile-menu" class="sm:hidden hidden fixed top-14 inset-x-0 z-50 bg-white border-t border-soft shadow-soft max-h-[calc(100vh-56px)] overflow-auto" role="dialog" aria-modal="true">
         <nav class="px-4 py-3 space-y-1 text-sm" aria-label="Mobile">
           <a href="#overview" class="block px-2 py-2 rounded hover:bg-panel">Overview</a>
           <a href="#showcase" class="block px-2 py-2 rounded hover:bg-panel">Showcase</a>
