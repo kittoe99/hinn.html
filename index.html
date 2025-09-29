@@ -109,6 +109,7 @@
       /* Smooth scroll and offset for sticky header/tabs */
       html { scroll-behavior: smooth; }
       #showcase { scroll-margin-top: 7rem; }
+
     </style>
   </head>
   <body class="min-h-screen">
@@ -201,19 +202,12 @@
           <a href="./get-started.html" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-accent-primary px-3.5 py-2 text-white text-sm font-medium hover:opacity-95 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Get started</a>
         </div>
       </div>
-      <!-- Mobile overlay + slide-over menu -->
-      <div id="mobile-overlay" class="sm:hidden fixed inset-0 bg-black/40 backdrop-blur-[2px] hidden"></div>
-      <div id="mobile-menu" class="sm:hidden fixed inset-y-0 right-0 w-80 max-w-[85vw] translate-x-full transition-transform duration-300 bg-white border-l border-soft shadow-xl hidden" role="dialog" aria-modal="true" aria-labelledby="mobile-title">
-        <div class="px-4 py-3 border-b border-soft flex items-center justify-between">
-          <div id="mobile-title" class="text-sm font-medium text-primary">Menu</div>
-          <button id="mobile-close" class="inline-flex items-center justify-center rounded-md p-2 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary" aria-label="Close menu">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
+      <!-- Mobile menu panel -->
+      <div id="mobile-menu" class="sm:hidden hidden border-t border-soft bg-white" role="dialog" aria-modal="true">
         <nav class="px-4 py-3 space-y-1 text-sm" aria-label="Mobile">
-          <a href="#overview" class="block px-3 py-2 rounded-lg hover:bg-panel">Overview</a>
-          <a href="#showcase" class="block px-3 py-2 rounded-lg hover:bg-panel">Showcase</a>
-          <div class="p-3.5 flex flex-col gap-2">
+          <a href="#overview" class="block px-2 py-2 rounded hover:bg-panel">Overview</a>
+          <a href="#showcase" class="block px-2 py-2 rounded hover:bg-panel">Showcase</a>
+          <div class="p-3.5 flex flex-col gap-2 bg-white">
             <a href="./get-started.html" class="btn btn-outline w-full">
               <span>Get Started Today</span>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
@@ -395,54 +389,23 @@
       // Year in footer
       document.getElementById('y').textContent = new Date().getFullYear();
 
-      // Mobile menu toggle with slide-over, overlay, scroll lock, and a11y
+      // Mobile menu toggle
       const menuButton = document.getElementById('menu-button');
       const mobileMenu = document.getElementById('mobile-menu');
-      const mobileOverlay = document.getElementById('mobile-overlay');
-      const mobileClose = document.getElementById('mobile-close');
       const iconMenu = document.getElementById('icon-menu');
       const iconClose = document.getElementById('icon-close');
 
-      let lastFocused = null;
-      let wasOverflow = '';
-
-      function lockScroll() {
-        wasOverflow = document.documentElement.style.overflow;
-        document.documentElement.style.overflow = 'hidden';
-      }
-      function unlockScroll() {
-        document.documentElement.style.overflow = wasOverflow || '';
-      }
-
       function setMenu(open) {
         if (open) {
-          lastFocused = document.activeElement;
-          mobileOverlay.classList.remove('hidden');
           mobileMenu.classList.remove('hidden');
-          // Start transition
-          requestAnimationFrame(() => {
-            mobileMenu.classList.remove('translate-x-full');
-          });
           menuButton.setAttribute('aria-expanded', 'true');
           iconMenu.classList.add('hidden');
           iconClose.classList.remove('hidden');
-          lockScroll();
-          // Focus first focusable
-          const first = mobileMenu.querySelector('a, button, [tabindex]:not([tabindex="-1"])');
-          first?.focus();
         } else {
-          mobileMenu.classList.add('translate-x-full');
-          mobileOverlay.classList.add('hidden');
+          mobileMenu.classList.add('hidden');
           menuButton.setAttribute('aria-expanded', 'false');
           iconMenu.classList.remove('hidden');
           iconClose.classList.add('hidden');
-          // After transition, hide
-          setTimeout(() => { mobileMenu.classList.add('hidden'); }, 250);
-          unlockScroll();
-          // Restore focus (plain JS check)
-          if (lastFocused && typeof lastFocused.focus === 'function') {
-            lastFocused.focus();
-          }
         }
       }
 
@@ -450,17 +413,6 @@
       menuButton?.addEventListener('click', () => {
         open = !open;
         setMenu(open);
-      });
-      mobileOverlay?.addEventListener('click', () => { open = false; setMenu(false); });
-      mobileClose?.addEventListener('click', () => { open = false; setMenu(false); });
-      // Close on Esc
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && open) { open = false; setMenu(false); }
-      });
-      // Close menu when clicking a link inside (plain JS target check)
-      mobileMenu?.addEventListener('click', (e) => {
-        const t = e.target;
-        if (t instanceof Element && t.closest('a')) { open = false; setMenu(false); }
       });
 
       // Close menu when resizing to >= sm breakpoint
