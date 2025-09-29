@@ -15,11 +15,11 @@
 
     <style>
       :root {
-        /* Light theme with slightly darker background */
-        --bg-page: #fff7f0;
-        --panel: #fff7f0;
-        --panel-hover: #f9efe6;
-        --border: #e6d6c8;
+        /* Ultra light palette (match index.html) */
+        --bg-page: #fffcf5;
+        --panel: #fffcf5;
+        --panel-hover: #faf3e3;
+        --border: #eee6cf;
         --accent: #d97759;
         --background: var(--bg-page);
         --foreground: #0a0a0a;
@@ -59,6 +59,56 @@
       .hover\:bg-neutral-50:hover { background-color: var(--panel-hover) !important; }
       .ring-neutral-200 { --tw-ring-color: var(--border) !important; }
       .border-neutral-200, .border-neutral-300 { border-color: var(--border) !important; }
+
+      /* True white utility for surfaces that must be pure white */
+      .bg-true-white { background-color: #ffffff !important; }
+
+      /* Form color system */
+      :root {
+        --field-bg: #ffffff; /* white fields for maximum clarity */
+        --field-border: #e8dfc6;
+        --field-border-hover: #e0d5b8;
+        --field-placeholder: #9e9380;
+        --field-focus-ring: rgba(217,119,89,.22); /* accent glow */
+      }
+
+      /* Inputs, selects, textareas */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        background-color: var(--field-bg);
+        border-color: var(--field-border) !important;
+        color: var(--text-primary);
+        box-shadow: none;
+        transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+      }
+      input[type="text"]::placeholder,
+      input[type="email"]::placeholder,
+      input[type="tel"]::placeholder,
+      textarea::placeholder {
+        color: var(--field-placeholder);
+        opacity: 1;
+      }
+      input[type="text"]:hover,
+      input[type="email"]:hover,
+      input[type="tel"]:hover,
+      select:hover,
+      textarea:hover { border-color: var(--field-border-hover) !important; }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="tel"]:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--accent-primary) !important;
+        box-shadow: 0 0 0 3px var(--field-focus-ring) !important;
+        background-color: #fff; /* subtle contrast on focus */
+      }
+
+      /* Subtle focus for buttons used as actions in form */
+      button:focus-visible { box-shadow: 0 0 0 3px var(--field-focus-ring); }
 
       /* Unified button design */
       .btn {
@@ -123,7 +173,7 @@
             <main class="col-span-12 md:col-span-8">
               <div class="space-y-4">
                 <!-- Step 1: Personal info -->
-                <details id="step1" open class="relative rounded-xl border bg-white border-neutral-200 shadow-soft shadow-hover">
+                <details id="step1" open class="relative rounded-xl border bg-true-white border-neutral-200 shadow-soft shadow-hover">
                   <summary class="flex items-center justify-between gap-3 cursor-pointer select-none px-4 py-3">
                     <div class="text-sm font-medium text-neutral-800">1. Personal info</div>
                     <svg class="chevron h-4 w-4 text-neutral-500 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
@@ -156,7 +206,7 @@
                 </details>
 
                 <!-- Step 2: Package -->
-                <details id="step2" class="relative rounded-xl border bg-white border-neutral-200 shadow-soft shadow-hover">
+                <details id="step2" class="relative rounded-xl border bg-true-white border-neutral-200 shadow-soft shadow-hover">
                   <summary class="flex items-center justify-between gap-3 cursor-pointer select-none px-4 py-3">
                     <div class="text-sm font-medium text-neutral-800">2. Package</div>
                     <svg class="chevron h-4 w-4 text-neutral-500 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
@@ -184,7 +234,7 @@
                         </label>
                       </div>
                       <div class="mt-4 flex items-center justify-between">
-                        <button id="backTo1" type="button" class="px-4 py-2 rounded-md border border-neutral-300 text-sm text-neutral-700 bg-white hover:bg-neutral-50 shadow-soft">Back</button>
+                        <button id="backTo1" type="button" class="px-4 py-2 rounded-md border border-neutral-300 text-sm text-neutral-700 bg-true-white hover:bg-neutral-50 shadow-soft">Back</button>
                         <button id="toStep3" type="button" class="px-4 py-2 rounded-md text-white text-sm bg-[color:var(--accent-primary)] hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Continue</button>
                       </div>
                     </div>
@@ -192,7 +242,7 @@
                 </details>
 
                 <!-- Step 3: Summary -->
-                <details id="step3" class="relative rounded-xl border bg-white border-neutral-200 shadow-soft shadow-hover">
+                <details id="step3" class="relative rounded-xl border bg-true-white border-neutral-200 shadow-soft shadow-hover">
                   <summary class="flex items-center justify-between gap-3 cursor-pointer select-none px-4 py-3">
                     <div class="text-sm font-medium text-neutral-800">3. Summary</div>
                     <svg class="chevron h-4 w-4 text-neutral-500 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
@@ -207,7 +257,7 @@
                         </dl>
                       </div>
                       <div class="mt-4 flex items-center justify-between">
-                        <button id="backTo2" type="button" class="px-4 py-2 rounded-md border border-neutral-300 text-sm text-neutral-700 bg-white hover:bg-neutral-50">Back</button>
+                        <button id="backTo2" type="button" class="px-4 py-2 rounded-md border border-neutral-300 text-sm text-neutral-700 bg-true-white hover:bg-neutral-50">Back</button>
                         <button id="toStep4" type="button" class="px-4 py-2 rounded-md text-white text-sm bg-black hover:bg-neutral-900">Continue</button>
                       </div>
                     </div>
@@ -215,7 +265,7 @@
                 </details>
 
                 <!-- Step 4: Checkout (mock) -->
-                <details id="step4" class="relative rounded-xl border bg-white border-neutral-200 shadow-soft shadow-hover">
+                <details id="step4" class="relative rounded-xl border bg-true-white border-neutral-200 shadow-soft shadow-hover">
                   <summary class="flex items-center justify-between gap-3 cursor-pointer select-none px-4 py-3">
                     <div class="text-sm font-medium text-neutral-800">4. Checkout</div>
                     <svg class="chevron h-4 w-4 text-neutral-500 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
@@ -227,7 +277,7 @@
                         <p class="mt-2 text-sm text-neutral-600">This static demo will open your email client with a pre-filled message. In production we'd redirect to Stripe Checkout.</p>
                         <div class="mt-4 flex items-center gap-3">
                           <button id="mockPay" type="button" class="px-4 py-2 rounded-md text-white text-sm bg-[color:var(--accent-primary)] hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary shadow-soft">Proceed to checkout</button>
-                          <a href="mailto:hello@hinn.dev" class="px-4 py-2 rounded-md border border-neutral-300 text-sm text-neutral-700 bg-white hover:bg-neutral-50">Email us instead</a>
+                          <a href="mailto:hello@hinn.dev" class="px-4 py-2 rounded-md border border-neutral-300 text-sm text-neutral-700 bg-true-white hover:bg-neutral-50">Email us instead</a>
                         </div>
                       </div>
                     </div>
