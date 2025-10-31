@@ -2,136 +2,70 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-    />
-    <meta
-      name="description"
-      content="Hinn helps modern teams orchestrate repeatable customer onboarding with automation, analytics, and collaborative playbooks."
-    />
-    <title>Hinn — Smarter customer onboarding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hinn – Human-centric intelligence platform</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg: radial-gradient(circle at 20% 20%, #20205f 0%, #0f0f25 45%, #050510 100%);
+        --surface: rgba(12, 12, 30, 0.8);
+        --card: rgba(17, 18, 41, 0.9);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --primary: #7b61ff;
+        --primary-soft: rgba(123, 97, 255, 0.12);
+        --secondary: #00d8cc;
+        --text-primary: #f5f7ff;
+        --text-secondary: rgba(233, 235, 255, 0.7);
+        --muted: rgba(180, 184, 255, 0.35);
+        --shadow: 0 20px 60px rgba(10, 10, 30, 0.35);
+        --transition: 220ms ease;
+        scroll-behavior: smooth;
+      }
+
       *,
       *::before,
       *::after {
         box-sizing: border-box;
       }
 
-      :root {
-        color-scheme: light;
-        --bg-gradient: radial-gradient(
-            circle at 20% -10%,
-            rgba(96, 70, 255, 0.18),
-            rgba(96, 70, 255, 0)
-          ),
-          radial-gradient(
-            circle at 90% 0%,
-            rgba(0, 200, 210, 0.22),
-            rgba(0, 200, 210, 0)
-          ),
-          linear-gradient(180deg, #fbfbfe 0%, #f2f5ff 100%);
-        --color-bg: rgba(255, 255, 255, 0.78);
-        --color-surface: rgba(255, 255, 255, 0.94);
-        --color-border: rgba(96, 70, 255, 0.18);
-        --color-card-border: rgba(99, 91, 124, 0.18);
-        --color-text: #211b33;
-        --color-muted: #5f567a;
-        --color-inverse: #ffffff;
-        --color-primary: #6046ff;
-        --color-primary-soft: rgba(96, 70, 255, 0.12);
-        --color-accent: #00c6b8;
-        --glow: 0 30px 60px rgba(63, 44, 177, 0.12);
-        --blurred-surface: rgba(255, 255, 255, 0.6);
-        --shadow-card: 0 22px 45px -25px rgba(33, 27, 51, 0.35);
-        --radius-lg: 28px;
-        --radius-md: 18px;
-        --radius-sm: 12px;
-        --transition: 200ms ease;
-      }
-
-      body[data-theme="dark"] {
-        color-scheme: dark;
-        --bg-gradient: radial-gradient(
-            circle at 9% -5%,
-            rgba(96, 70, 255, 0.5),
-            rgba(96, 70, 255, 0)
-          ),
-          radial-gradient(
-            circle at 80% 0%,
-            rgba(0, 198, 179, 0.35),
-            rgba(0, 198, 179, 0)
-          ),
-          linear-gradient(180deg, #0c0b16 0%, #141426 100%);
-        --color-bg: rgba(18, 16, 31, 0.7);
-        --color-surface: rgba(22, 21, 38, 0.92);
-        --color-border: rgba(126, 113, 255, 0.25);
-        --color-card-border: rgba(126, 113, 255, 0.24);
-        --color-text: #f4f2ff;
-        --color-muted: #a3a0c1;
-        --color-inverse: #111123;
-        --color-primary: #9184ff;
-        --color-primary-soft: rgba(148, 139, 255, 0.12);
-        --color-accent: #3de8d2;
-        --glow: 0 25px 60px rgba(17, 13, 54, 0.45);
-        --blurred-surface: rgba(18, 16, 31, 0.6);
-        --shadow-card: 0 25px 36px -28px rgba(0, 0, 0, 0.6);
-      }
-
       body {
         margin: 0;
-        font-family: "Inter", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
-          "Segoe UI", sans-serif;
-        font-size: 1rem;
-        line-height: 1.6;
-        color: var(--color-text);
-        background: var(--bg-gradient);
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: var(--bg);
+        color: var(--text-primary);
         min-height: 100vh;
         position: relative;
         overflow-x: hidden;
-        transition: background 450ms ease, color 250ms ease;
       }
 
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background: linear-gradient(
-            130deg,
-            rgba(255, 255, 255, 0.35) 0%,
-            rgba(255, 255, 255, 0) 45%
-          ),
-          linear-gradient(
-            200deg,
-            rgba(255, 255, 255, 0.35) 0%,
-            rgba(255, 255, 255, 0) 40%
-          );
-        pointer-events: none;
-        z-index: -2;
-      }
-
+      body::before,
       body::after {
         content: "";
         position: fixed;
-        top: 18%;
-        right: -150px;
-        width: 380px;
-        height: 380px;
-        background: radial-gradient(
-          circle,
-          rgba(96, 70, 255, 0.3) 0%,
-          rgba(96, 70, 255, 0) 70%
-        );
-        filter: blur(30px);
-        opacity: 0.9;
-        pointer-events: none;
-        z-index: -3;
+        width: 620px;
+        height: 620px;
+        border-radius: 50%;
+        filter: blur(160px);
+        z-index: -2;
+        opacity: 0.4;
+      }
+
+      body::before {
+        background: #7b61ff;
+        top: -220px;
+        right: -180px;
+      }
+
+      body::after {
+        background: #00d8cc;
+        bottom: -260px;
+        left: -140px;
       }
 
       a {
@@ -139,1317 +73,1028 @@
         text-decoration: none;
       }
 
-      img,
-      svg {
-        display: block;
-        max-width: 100%;
+      .layout {
+        position: relative;
+        z-index: 1;
       }
 
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
+      .announcement {
+        backdrop-filter: blur(16px);
+        background: rgba(123, 97, 255, 0.1);
+        color: var(--text-secondary);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 0.75rem 1rem;
       }
 
-      .container {
-        width: min(1120px, calc(100% - 3rem));
-        margin: 0 auto;
+      .announcement strong {
+        color: var(--text-primary);
       }
 
-      .glass-card {
-        background: var(--color-surface);
-        border: 1px solid var(--color-card-border);
-        box-shadow: var(--shadow-card);
-        border-radius: var(--radius-lg);
-        backdrop-filter: blur(18px);
-      }
-
-      .pill {
+      .announcement a {
         display: inline-flex;
         align-items: center;
         gap: 0.35rem;
-        padding: 0.35rem 0.75rem;
-        border-radius: 999px;
-        background: var(--color-primary-soft);
-        color: var(--color-primary);
-        font-size: 0.78rem;
+        color: var(--secondary);
         font-weight: 600;
-        letter-spacing: 0.4px;
+        margin-left: 0.5rem;
       }
 
-      .badge-light {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        padding: 0.35rem 0.75rem;
-        border-radius: 999px;
-        background: rgba(99, 91, 124, 0.08);
-        color: var(--color-muted);
-        font-size: 0.75rem;
-        font-weight: 600;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.55rem;
-        padding: 0.75rem 1.35rem;
-        border-radius: 999px;
-        font-weight: 600;
-        font-size: 0.95rem;
-        border: 1px solid transparent;
-        cursor: pointer;
-        transition: transform var(--transition), box-shadow var(--transition),
-          background var(--transition), color var(--transition),
-          border-color var(--transition);
-        text-decoration: none;
-        min-height: 2.75rem;
-      }
-
-      .button:hover {
-        transform: translateY(-1px);
-      }
-
-      .button:focus-visible {
-        outline: 3px solid rgba(0, 198, 179, 0.65);
-        outline-offset: 2px;
-      }
-
-      .button.primary {
-        background: linear-gradient(120deg, var(--color-primary), #815cff);
-        color: var(--color-inverse);
-        box-shadow: 0 18px 35px -20px rgba(96, 70, 255, 0.7);
-      }
-
-      .button.primary:hover {
-        box-shadow: 0 18px 45px -18px rgba(96, 70, 255, 0.78);
-      }
-
-      .button.ghost {
-        border-color: rgba(99, 91, 124, 0.18);
-        background: rgba(255, 255, 255, 0.65);
-        color: var(--color-text);
-      }
-
-      body[data-theme="dark"] .button.ghost {
-        background: rgba(26, 23, 38, 0.8);
-        color: var(--color-text);
-      }
-
-      .button.surface {
-        background: rgba(255, 255, 255, 0.12);
-        border-color: rgba(255, 255, 255, 0.1);
-        color: var(--color-text);
-      }
-
-      .button.small {
-        padding-inline: 0.95rem;
-        min-height: 2.35rem;
-        font-size: 0.85rem;
-      }
-
-      .button.icon-only {
-        width: 2.75rem;
-        padding: 0;
-      }
-
-      .site-header {
+      header.navbar {
         position: sticky;
-        top: 1.5rem;
-        z-index: 100;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(18px);
+        background: rgba(9, 9, 24, 0.55);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       }
 
-      .site-header .nav-container {
+      .nav-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 1.2rem 1.5rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 1.5rem;
-        padding: 0.85rem 1.1rem;
-        border-radius: 999px;
-        background: var(--color-bg);
-        border: 1px solid var(--color-border);
-        backdrop-filter: blur(18px);
-        box-shadow: var(--glow);
       }
 
-      .logo {
-        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-        font-weight: 700;
-        font-size: 1.1rem;
-        letter-spacing: -0.02em;
-        color: var(--color-text);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-      }
-
-      .logo::before {
-        content: "";
-        width: 12px;
-        height: 12px;
-        border-radius: 4px;
-        background: linear-gradient(140deg, var(--color-primary), var(--color-accent));
-        box-shadow: 0 0 15px rgba(96, 70, 255, 0.55);
-      }
-
-      .primary-nav {
-        display: flex;
-        align-items: center;
-        gap: 1.35rem;
-        font-size: 0.95rem;
-        font-weight: 500;
-        color: var(--color-muted);
-      }
-
-      .primary-nav a {
-        position: relative;
-        padding: 0.35rem 0;
-      }
-
-      .primary-nav a::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -0.3rem;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
-        border-radius: 999px;
-        transform: scaleX(0);
-        transform-origin: center;
-        transition: transform var(--transition);
-      }
-
-      .primary-nav a:hover::after,
-      .primary-nav a:focus-visible::after {
-        transform: scaleX(1);
-      }
-
-      .header-actions {
+      .brand {
         display: flex;
         align-items: center;
         gap: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--text-primary);
+        text-transform: uppercase;
       }
 
-      main {
-        padding-top: 6rem;
+      .brand-icon {
+        width: 36px;
+        height: 36px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: linear-gradient(135deg, rgba(123, 97, 255, 0.9), rgba(0, 216, 204, 0.8));
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
       }
 
-      section {
-        padding-block: clamp(4rem, 10vw, 7.5rem);
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      nav ul li a {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        transition: color var(--transition);
+        position: relative;
+      }
+
+      nav ul li a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        transition: width var(--transition);
+        border-radius: 999px;
+      }
+
+      nav ul li a:hover,
+      nav ul li a:focus {
+        color: var(--text-primary);
+      }
+
+      nav ul li a:hover::after,
+      nav ul li a:focus::after,
+      nav ul li a.active::after {
+        width: 100%;
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+      }
+
+      .btn {
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform var(--transition), box-shadow var(--transition),
+          background var(--transition), color var(--transition);
+        border-radius: 999px;
+        padding: 0.75rem 1.35rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, rgba(123, 97, 255, 1), rgba(0, 216, 204, 0.8));
+        color: #070711;
+        box-shadow: 0 18px 45px rgba(123, 97, 255, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 18px 60px rgba(123, 97, 255, 0.45);
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--text-primary);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-2px);
       }
 
       .hero {
-        padding-top: clamp(2rem, 8vw, 6.5rem);
+        position: relative;
+        padding: 5.5rem 1.5rem 6rem;
       }
 
-      .hero .inner {
+      .hero-inner {
+        max-width: 1160px;
+        margin: 0 auto;
         display: grid;
-        align-items: end;
-        gap: clamp(2rem, 5vw, 4.5rem);
-        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+        gap: 3.5rem;
+        align-items: center;
       }
 
-      .hero-copy {
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
-      }
-
-      .hero h1 {
-        margin: 0;
-        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-        font-size: clamp(2.35rem, 5vw, 3.8rem);
-        line-height: 1.08;
+      .hero-copy h1 {
+        font-size: clamp(2.75rem, 4vw, 4.2rem);
+        margin: 0 0 1.5rem;
+        line-height: 1.1;
         letter-spacing: -0.02em;
       }
 
-      .hero p {
-        margin: 0;
-        max-width: 44ch;
-        color: var(--color-muted);
-        font-size: 1.05rem;
+      .gradient-text {
+        background: linear-gradient(135deg, #7b61ff 0%, #00d8cc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
-      .hero-actions {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.9rem;
-        margin-top: 0.2rem;
+      .hero-copy p {
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        margin-bottom: 2.25rem;
+        max-width: 32rem;
       }
 
-      .stat-grid {
+      .hero-visual {
+        position: relative;
+        padding: 2rem;
+        border-radius: 24px;
+        background: linear-gradient(160deg, rgba(123, 97, 255, 0.18), rgba(5, 7, 24, 0.75));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .hero-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         gap: 1rem;
-        margin-top: 1.75rem;
+      }
+
+      .hero-card {
+        background: rgba(9, 10, 28, 0.85);
+        border-radius: 18px;
+        padding: 1.4rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::before {
+        content: "";
+        position: absolute;
+        inset: -40% 50% auto -40%;
+        height: 120px;
+        background: radial-gradient(circle, rgba(123, 97, 255, 0.35) 0%, transparent 60%);
+        opacity: 0.6;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.5rem;
       }
 
       .stat-card {
-        padding: 1.35rem 1.4rem;
-        border-radius: var(--radius-md);
-        background: rgba(255, 255, 255, 0.65);
-        border: 1px solid rgba(96, 70, 255, 0.12);
-        backdrop-filter: blur(12px);
-      }
-
-      body[data-theme="dark"] .stat-card {
-        background: rgba(24, 22, 38, 0.78);
-        border-color: rgba(145, 132, 255, 0.16);
+        padding: 1.2rem 1.4rem;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        text-align: center;
       }
 
       .stat-card strong {
         display: block;
-        font-size: 1.7rem;
-        font-weight: 700;
-        color: var(--color-text);
+        font-size: 1.4rem;
       }
 
       .stat-card span {
-        color: var(--color-muted);
-        font-size: 0.88rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+        letter-spacing: 0.04em;
       }
 
-      .hero-visual {
-        padding: 1.6rem;
-        background: var(--color-bg);
-        position: relative;
-        overflow: hidden;
-        border-radius: var(--radius-lg);
+      .clients {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1.5rem;
+        align-items: center;
+        color: var(--muted);
+        font-size: 0.85rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
       }
 
-      .hero-visual::before {
-        content: "";
-        position: absolute;
-        inset: -40% -20%;
-        background: radial-gradient(
-          circle at 50% 0%,
-          rgba(255, 255, 255, 0.28),
-          rgba(255, 255, 255, 0)
-        );
-        opacity: 0.65;
-        pointer-events: none;
+      section {
+        padding: 5rem 1.5rem;
       }
 
-      .hero-visual::after {
-        content: "";
-        position: absolute;
-        inset: -55% -25%;
-        background: radial-gradient(
-          circle at 50% 0%,
-          rgba(96, 70, 255, 0.2),
-          rgba(96, 70, 255, 0)
-        );
-        opacity: 0.6;
-        mix-blend-mode: screen;
-        pointer-events: none;
+      .section-inner {
+        max-width: 1160px;
+        margin: 0 auto;
       }
 
-      .hero-visual-content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        gap: 1.2rem;
+      .section-header {
+        max-width: 680px;
+        margin-bottom: 3rem;
       }
 
-      .visual-row {
-        display: flex;
-        gap: 1rem;
-      }
-
-      .visual-card {
-        flex: 1;
-        padding: 1rem;
-        border-radius: var(--radius-md);
-        background: rgba(255, 255, 255, 0.9);
-        border: 1px solid rgba(96, 70, 255, 0.15);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .visual-card::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(96, 70, 255, 0.08), transparent 55%);
-        pointer-events: none;
-      }
-
-      body[data-theme="dark"] .visual-card {
-        background: rgba(24, 22, 38, 0.86);
-        border-color: rgba(145, 132, 255, 0.16);
-      }
-
-      .visual-card strong {
-        display: flex;
+      .section-eyebrow {
+        display: inline-flex;
         align-items: center;
         gap: 0.5rem;
-        font-weight: 600;
-        font-size: 0.95rem;
-      }
-
-      .visual-card p {
-        margin: 0.45rem 0 0;
-        font-size: 0.82rem;
-        color: var(--color-muted);
-      }
-
-      .visual-footer {
-        margin-top: 0.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        flex-wrap: wrap;
-      }
-
-      .avatar-stack {
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .avatar-stack span {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 36px;
-        height: 36px;
-        border-radius: 50%;
-        border: 2px solid var(--color-surface);
-        background: linear-gradient(135deg, rgba(96, 70, 255, 0.7), rgba(0, 198, 179, 0.7));
-        color: #fff;
-        font-size: 0.78rem;
-        font-weight: 600;
-        transform: translateX(calc(var(--n, 0) * -12px));
-      }
-
-      .avatar-stack span:not(:first-child) {
-        margin-left: -12px;
-      }
-
-      .visual-footnote {
-        font-size: 0.82rem;
-        color: var(--color-muted);
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        padding: 0.45rem 0.75rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--secondary);
+        background: rgba(0, 216, 204, 0.12);
+        padding: 0.5rem 0.9rem;
         border-radius: 999px;
-        background: rgba(96, 70, 255, 0.12);
-        border: 1px solid rgba(96, 70, 255, 0.18);
+        border: 1px solid rgba(0, 216, 204, 0.25);
       }
 
-      .section-heading {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        margin-bottom: clamp(2rem, 5vw, 3rem);
-        max-width: 62ch;
+      .section-header h2 {
+        font-size: clamp(2rem, 3vw, 2.75rem);
+        margin: 1.25rem 0 1rem;
+        line-height: 1.3;
       }
 
-      .section-heading h2 {
-        margin: 0;
-        font-size: clamp(1.9rem, 4vw, 2.6rem);
-        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
-        letter-spacing: -0.02em;
+      .section-header p {
+        color: var(--text-secondary);
+        font-size: 1rem;
+        line-height: 1.7;
       }
 
-      .section-heading p {
-        margin: 0;
-        color: var(--color-muted);
-      }
-
-      .feature-grid {
+      .features-grid {
         display: grid;
+        gap: 1.75rem;
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: clamp(1.4rem, 3vw, 1.85rem);
       }
 
       .feature-card {
-        padding: 1.8rem;
-        border-radius: var(--radius-lg);
-        border: 1px solid rgba(96, 70, 255, 0.15);
-        background: rgba(255, 255, 255, 0.72);
-        backdrop-filter: blur(14px);
-        display: flex;
-        flex-direction: column;
-        gap: 0.85rem;
-        transition: transform var(--transition), border-color var(--transition);
+        background: var(--card);
+        border: 1px solid var(--card-border);
+        border-radius: 20px;
+        padding: 1.75rem;
+        position: relative;
+        overflow: hidden;
+        transition: transform var(--transition), border var(--transition),
+          background var(--transition);
       }
 
       .feature-card:hover {
-        transform: translateY(-4px);
-        border-color: rgba(96, 70, 255, 0.3);
-      }
-
-      body[data-theme="dark"] .feature-card {
-        background: rgba(26, 23, 38, 0.82);
-        border-color: rgba(145, 132, 255, 0.16);
+        transform: translateY(-6px);
+        border-color: rgba(123, 97, 255, 0.6);
+        background: rgba(21, 22, 52, 0.95);
       }
 
       .feature-icon {
-        width: 42px;
-        height: 42px;
+        width: 46px;
+        height: 46px;
         border-radius: 14px;
         display: grid;
         place-items: center;
-        background: linear-gradient(135deg, rgba(96, 70, 255, 0.2), rgba(0, 198, 179, 0.2));
-        color: var(--color-primary);
-        font-size: 1.2rem;
-        font-weight: 600;
+        background: var(--primary-soft);
+        margin-bottom: 1.25rem;
+        color: var(--primary);
       }
 
       .feature-card h3 {
-        margin: 0;
+        margin-top: 0;
         font-size: 1.25rem;
       }
 
       .feature-card p {
-        margin: 0;
-        color: var(--color-muted);
-        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
       }
 
-      .feature-card ul {
-        margin: 0;
-        padding-left: 1.1rem;
-        color: var(--color-muted);
-        font-size: 0.88rem;
-        display: grid;
+      .feature-card a {
+        font-weight: 600;
+        color: var(--secondary);
+        display: inline-flex;
+        align-items: center;
         gap: 0.4rem;
       }
 
-      .feature-card strong {
-        font-size: 0.85rem;
-        color: var(--color-text);
-        letter-spacing: 0.02em;
-      }
-
       .workflow {
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: var(--radius-lg);
-        border: 1px solid rgba(96, 70, 255, 0.12);
-        backdrop-filter: blur(14px);
-        padding: clamp(2.2rem, 6vw, 3.5rem);
         display: grid;
-        gap: 2.4rem;
-      }
-
-      body[data-theme="dark"] .workflow {
-        background: rgba(18, 16, 31, 0.74);
-        border-color: rgba(148, 139, 255, 0.16);
-      }
-
-      .workflow-steps {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: 1.6rem;
-      }
-
-      .workflow-steps li {
-        display: grid;
-        grid-template-columns: minmax(0, 0.18fr) minmax(0, 1fr);
-        gap: 1.5rem;
-        align-items: center;
-      }
-
-      .workflow-index {
-        width: 52px;
-        height: 52px;
-        border-radius: 16px;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-        display: grid;
-        place-items: center;
-        color: var(--color-inverse);
-        font-weight: 600;
-        font-size: 1.05rem;
-        box-shadow: 0 18px 28px -16px rgba(96, 70, 255, 0.75);
-      }
-
-      .workflow-copy h3 {
-        margin: 0;
-        font-size: 1.2rem;
-      }
-
-      .workflow-copy p {
-        margin: 0.35rem 0 0;
-        color: var(--color-muted);
-        font-size: 0.94rem;
-      }
-
-      .workflow-copy .note {
-        margin-top: 0.65rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.45rem;
-        padding: 0.4rem 0.65rem;
-        border-radius: 999px;
-        background: rgba(0, 198, 179, 0.12);
-        color: var(--color-accent);
-        font-size: 0.8rem;
-        font-weight: 600;
-      }
-
-      .testimonial-grid {
-        display: grid;
+        gap: 2rem;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .workflow-step {
+        background: rgba(12, 14, 34, 0.75);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .workflow-step::before {
+        content: attr(data-step);
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.28);
+      }
+
+      .workflow-step h3 {
+        font-size: 1.35rem;
+      }
+
+      .workflow-step p {
+        color: var(--text-secondary);
+        line-height: 1.65;
+      }
+
+      .workflow-cta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         gap: 1.5rem;
+        background: linear-gradient(135deg, rgba(123, 97, 255, 0.22), rgba(0, 216, 204, 0.18));
+        border-radius: 22px;
+        padding: 2.4rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .stats-grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        margin-top: 3rem;
+      }
+
+      .stats-item {
+        padding: 1.8rem;
+        background: rgba(8, 9, 24, 0.75);
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        text-align: center;
+      }
+
+      .stats-item strong {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 0.75rem;
+      }
+
+      .testimonials {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       }
 
       .testimonial-card {
-        padding: 1.8rem;
-        border-radius: var(--radius-lg);
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid rgba(96, 70, 255, 0.12);
-        display: grid;
-        gap: 1.2rem;
+        background: rgba(12, 13, 32, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
         position: relative;
+        overflow: hidden;
       }
 
       .testimonial-card::before {
         content: "\201C";
-        font-size: 5rem;
-        line-height: 0.6;
-        color: rgba(96, 70, 255, 0.2);
         position: absolute;
-        top: 16px;
-        left: 22px;
-        pointer-events: none;
+        top: -40px;
+        left: 24px;
+        font-size: 12rem;
+        color: rgba(123, 97, 255, 0.08);
       }
 
-      body[data-theme="dark"] .testimonial-card {
-        background: rgba(24, 22, 38, 0.82);
-        border-color: rgba(145, 132, 255, 0.16);
-      }
-
-      .testimonial-card blockquote {
-        margin: 0;
+      .testimonial-text {
         font-size: 1.05rem;
-        font-weight: 500;
-        color: var(--color-text);
+        line-height: 1.75;
+        color: var(--text-secondary);
       }
 
-      .testimonial-meta {
+      .person {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        gap: 1rem;
       }
 
-      .testimonial-avatar {
-        width: 44px;
-        height: 44px;
-        border-radius: 999px;
-        border: 2px solid var(--color-surface);
-        background: linear-gradient(135deg, rgba(96, 70, 255, 0.3), rgba(0, 198, 179, 0.3));
+      .avatar {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: linear-gradient(140deg, rgba(123, 97, 255, 0.9), rgba(0, 216, 204, 0.7));
         display: grid;
         place-items: center;
-        color: var(--color-primary);
-        font-weight: 600;
-        font-size: 0.95rem;
+        font-weight: 700;
+        color: rgba(7, 7, 17, 0.85);
       }
 
-      .testimonial-meta span {
+      .person span {
         display: block;
         font-size: 0.85rem;
-        color: var(--color-muted);
+        color: var(--muted);
       }
 
-      .pricing-grid {
+      .cta-panel {
+        margin: 6rem 0 4rem;
+        padding: clamp(2.5rem, 3vw, 3.5rem);
+        background: linear-gradient(135deg, rgba(123, 97, 255, 0.3), rgba(0, 216, 204, 0.14));
+        border-radius: 26px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.4rem;
-      }
-
-      .pricing-card {
-        position: relative;
-        padding: 2.25rem 2rem;
-        border-radius: calc(var(--radius-lg) + 6px);
-        background: rgba(255, 255, 255, 0.72);
-        border: 1px solid rgba(96, 70, 255, 0.12);
-        display: grid;
-        gap: 1.4rem;
-      }
-
-      body[data-theme="dark"] .pricing-card {
-        background: rgba(24, 22, 38, 0.82);
-        border-color: rgba(145, 132, 255, 0.16);
-      }
-
-      .pricing-card.highlight {
-        border: 1px solid rgba(0, 198, 179, 0.35);
-        box-shadow: 0 20px 45px -25px rgba(0, 198, 179, 0.65);
-      }
-
-      .pricing-card.highlight::after {
-        content: "Most popular";
-        position: absolute;
-        top: -14px;
-        left: 50%;
-        transform: translateX(-50%);
-        padding: 0.4rem 0.9rem;
-        border-radius: 999px;
-        background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
-        color: var(--color-inverse);
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.4px;
-      }
-
-      .pricing-card h3 {
-        margin: 0;
-        font-size: 1.25rem;
-      }
-
-      .pricing-card .price {
-        font-size: 2.35rem;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-
-      .pricing-card .price span {
-        font-size: 0.9rem;
-        color: var(--color-muted);
-        font-weight: 500;
-      }
-
-      .feature-list {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: grid;
-        gap: 0.65rem;
-        font-size: 0.92rem;
-        color: var(--color-muted);
-      }
-
-      .feature-list li {
-        display: flex;
+        gap: 2.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         align-items: center;
-        gap: 0.55rem;
       }
 
-      .feature-list li::before {
-        content: "";
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      .cta-panel h2 {
+        font-size: clamp(2rem, 3vw, 2.8rem);
+        margin: 0 0 1rem;
       }
 
-      .cta-section {
-        border-radius: calc(var(--radius-lg) + 12px);
-        padding: clamp(2.4rem, 6vw, 4rem);
-        background: linear-gradient(135deg, rgba(96, 70, 255, 0.87), rgba(0, 198, 179, 0.78));
-        color: #fff;
-        display: grid;
-        gap: 1.5rem;
-        text-align: center;
-      }
-
-      .cta-section h2 {
+      .cta-panel p {
+        color: var(--text-secondary);
+        line-height: 1.7;
         margin: 0;
-        font-size: clamp(2rem, 4.5vw, 2.8rem);
-        letter-spacing: -0.01em;
-      }
-
-      .cta-section p {
-        margin: 0 auto;
-        max-width: 50ch;
-        font-size: 1.05rem;
-        color: rgba(255, 255, 255, 0.85);
       }
 
       footer {
-        padding: 3rem 0 4rem;
-        color: var(--color-muted);
+        padding: 3rem 1.5rem;
+        background: rgba(6, 6, 16, 0.88);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
       }
 
       .footer-inner {
+        max-width: 1160px;
+        margin: 0 auto;
         display: grid;
+        gap: 2.5rem;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.8rem;
-        align-items: start;
       }
 
       .footer-brand p {
-        margin: 0.75rem 0 0;
-        max-width: 34ch;
+        color: var(--text-secondary);
+        line-height: 1.6;
       }
 
       .footer-links {
-        display: grid;
-        gap: 0.35rem;
-        font-size: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        color: var(--text-secondary);
       }
 
-      .footer-meta {
-        margin-top: 2.5rem;
-        font-size: 0.82rem;
-        text-align: center;
+      .footer-bottom {
+        margin-top: 2rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: var(--muted);
+        font-size: 0.85rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      @media (max-width: 1040px) {
-        .hero .inner {
+      .mobile-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-primary);
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      @media (max-width: 900px) {
+        header.navbar {
+          position: sticky;
+        }
+
+        .nav-inner {
+          flex-wrap: wrap;
+        }
+
+        .mobile-toggle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .nav-menu {
+          display: none;
+          width: 100%;
+        }
+
+        .nav-menu.open {
+          display: grid;
+          gap: 1.25rem;
+          padding-top: 1rem;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 1rem;
+        }
+
+        .nav-actions {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .hero-inner {
           grid-template-columns: 1fr;
         }
 
-        .hero-copy {
-          order: 2;
+        .hero-copy h1 {
+          font-size: clamp(2.3rem, 8vw, 3.2rem);
         }
 
         .hero-visual {
-          order: 1;
-        }
-      }
-
-      @media (max-width: 920px) {
-        .site-header {
-          top: 0.75rem;
+          padding: 1.4rem;
         }
 
-        .site-header .nav-container {
-          flex-wrap: wrap;
-          border-radius: 32px;
-        }
-
-        .primary-nav {
-          order: 3;
-          width: 100%;
-          justify-content: center;
-          flex-wrap: wrap;
-          padding-top: 0.4rem;
-        }
-
-        .header-actions {
-          flex: 1;
-          justify-content: flex-end;
-        }
-      }
-
-      @media (max-width: 720px) {
-        body::after {
-          display: none;
-        }
-
-        .container {
-          width: min(100%, calc(100% - 2rem));
+        .clients {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          text-align: center;
         }
 
         section {
-          padding-block: 4.5rem;
+          padding: 4rem 1.5rem;
         }
 
-        .hero {
-          padding-top: 3.5rem;
+        .cta-panel {
+          grid-template-columns: 1fr;
         }
 
-        .header-actions {
-          order: 2;
-          width: 100%;
-          justify-content: center;
-          flex-wrap: wrap;
-        }
-
-        .button.icon-only {
-          width: 2.4rem;
-          min-height: 2.4rem;
-        }
-
-        .workflow-steps li {
-          grid-template-columns: minmax(0, 52px) minmax(0, 1fr);
-          align-items: start;
-        }
-
-        .workflow-index {
-          justify-self: center;
-        }
-      }
-
-      @media (max-width: 540px) {
-        .site-header .nav-container {
-          border-radius: 26px;
-        }
-
-        .hero h1 {
-          font-size: clamp(2.15rem, 9vw, 2.5rem);
-        }
-
-        .stat-grid {
-          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        }
-
-        .visual-row {
+        .footer-bottom {
           flex-direction: column;
+          align-items: flex-start;
         }
       }
 
-      @media (prefers-reduced-motion: reduce) {
-        *,
-        *::before,
-        *::after {
-          animation-duration: 0.01ms !important;
-          animation-iteration-count: 1 !important;
-          transition-duration: 0.01ms !important;
-          scroll-behavior: auto !important;
-        }
+      .animate-up {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+
+      .animate-up.is-visible {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
-  <body data-theme="light">
-    <header class="site-header">
-      <div class="container nav-container">
-        <a class="logo" href="#home">Hinn</a>
-        <nav class="primary-nav" aria-label="Primary navigation">
-          <a href="#features">Features</a>
-          <a href="#workflow">Workflow</a>
-          <a href="#stories">Stories</a>
-          <a href="#pricing">Pricing</a>
-          <a href="blog.html">Resources</a>
-        </nav>
-        <div class="header-actions">
-          <a class="button ghost small" href="contact.html">Contact sales</a>
-          <a class="button primary small" href="#pricing">Start free trial</a>
-          <button
-            class="button icon-only surface theme-toggle"
-            type="button"
-            aria-pressed="false"
-            data-theme-toggle
-          >
-            <span aria-hidden="true" data-icon>🌙</span>
-            <span class="sr-only" data-label>Switch to dark mode</span>
-          </button>
-        </div>
+  <body>
+    <div class="layout">
+      <div class="announcement">
+        <strong>Just launched:</strong> Hinn Insight Engine 2.1 with deeper customer empathy
+        models.
+        <a href="get-started.html">See whats new &rarr;</a>
       </div>
-    </header>
 
-    <main id="home">
-      <section class="hero">
-        <div class="container inner">
-          <div class="hero-copy">
-            <span class="pill">New • Adaptive customer journeys</span>
-            <h1>Orchestrate onboarding that converts every time.</h1>
-            <p>
-              Hinn unifies playbooks, automated nudges, and live analytics so
-              GTM teams can deliver a personal onboarding experience at scale —
-              without adding more headcount.
-            </p>
-            <div class="hero-actions">
-              <a class="button primary" href="#cta">Create a free workspace</a>
-              <a class="button ghost" href="get-started.html">See product tour</a>
+      <header class="navbar">
+        <div class="nav-inner">
+          <a class="brand" href="index.html">
+            <span class="brand-icon">H</span>
+            Hinn
+          </a>
+          <button class="mobile-toggle" type="button" aria-label="Toggle navigation">&#9776;</button>
+          <div class="nav-menu">
+            <nav>
+              <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="get-started.html">Get started</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </nav>
+            <div class="nav-actions">
+              <a class="btn btn-ghost" href="mailto:hello@hinn.ai">Talk to us</a>
+              <a class="btn btn-primary" href="get-started.html">Start free trial</a>
             </div>
-            <div class="stat-grid">
-              <div class="stat-card">
-                <strong>92%</strong>
-                <span>Of teams activate customers 2× faster with Hinn.</span>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-inner">
+            <div class="hero-copy animate-up">
+              <h1>
+                Human intelligence, amplified for
+                <span class="gradient-text">every customer conversation</span>
+              </h1>
+              <p>
+                Hinn blends AI with human-centred research workflows so your teams can uncover
+                customer needs, validate ideas faster, and deliver experiences that feel bespoke at
+                any scale.
+              </p>
+              <div class="hero-actions">
+                <a class="btn btn-primary" href="get-started.html">Launch the platform</a>
+                <a class="btn btn-ghost" href="blog.html">Explore playbooks</a>
               </div>
-              <div class="stat-card">
-                <strong>48 hrs</strong>
-                <span>Average time saved per week across CS &amp; RevOps.</span>
+              <div class="hero-stats">
+                <div class="stat-card">
+                  <strong>4.9/5</strong>
+                  <span>Average CSAT impact</span>
+                </div>
+                <div class="stat-card">
+                  <strong>12x</strong>
+                  <span>Faster insight cycles</span>
+                </div>
+                <div class="stat-card">
+                  <strong>38+</strong>
+                  <span>Research templates</span>
+                </div>
               </div>
-              <div class="stat-card">
-                <strong>35%</strong>
-                <span>Increase in expansion revenue from guided moments.</span>
+            </div>
+            <div class="hero-visual animate-up" data-delay="120">
+              <div class="hero-grid">
+                <div class="hero-card">
+                  <h3>Insight pulse</h3>
+                  <p>
+                    Live cohorts visualize sentiment, effort and intent in a single adaptive canvas
+                    built for strategic teams.
+                  </p>
+                </div>
+                <div class="hero-card">
+                  <h3>Journey orchestration</h3>
+                  <p>
+                    Orchestrate moderated interviews, feedback rituals and product experiments with
+                    repeatable clarity.
+                  </p>
+                </div>
+              </div>
+              <div class="hero-stats">
+                <div class="stat-card">
+                  <strong>92%</strong>
+                  <span>Decision confidence</span>
+                </div>
+                <div class="stat-card">
+                  <strong>18k+</strong>
+                  <span>Signals connected</span>
+                </div>
               </div>
             </div>
           </div>
+          <div class="clients animate-up" data-delay="180">
+            <span>Trusted by product & research teams at</span>
+            <span>Arcadia Labs</span>
+            <span>Northwind CX</span>
+            <span>Lumenary</span>
+            <span>Craftline</span>
+          </div>
+        </section>
 
-          <div class="hero-visual glass-card" role="img" aria-label="Illustration showing Hinn automations and collaboration">
-            <div class="hero-visual-content">
-              <div class="visual-row">
-                <div class="visual-card">
-                  <strong>Kickoff packet</strong>
-                  <p>Auto-shares resources after the first discovery call.</p>
-                </div>
-                <div class="visual-card">
-                  <strong>Health signals</strong>
-                  <p>AI highlights blockers when momentum begins to stall.</p>
-                </div>
-              </div>
-              <div class="visual-row">
-                <div class="visual-card">
-                  <strong>Smart nudges</strong>
-                  <p>Trigger customer reminders with Slack and email in sync.</p>
-                </div>
-                <div class="visual-card">
-                  <strong>Executive view</strong>
-                  <p>Share live status pages with milestones and owners.</p>
-                </div>
-              </div>
-              <div class="visual-footer">
-                <div class="avatar-stack">
-                  <span style="--n: 0">AR</span>
-                  <span style="--n: 1">JS</span>
-                  <span style="--n: 2">LK</span>
-                  <span style="--n: 3">MT</span>
-                </div>
-                <span class="visual-footnote">
-                  <svg
-                    aria-hidden="true"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
+        <section id="features">
+          <div class="section-inner">
+            <div class="section-header animate-up">
+              <span class="section-eyebrow">Why Hinn</span>
+              <h2>Bring empathy to every decision with intelligence your teams actually trust.</h2>
+              <p>
+                Reduce the distance between discovery and delivery. Hinn anchors AI assistance with
+                human rituals so your organisation captures the full voice of the customer without
+                sacrificing speed or nuance.
+              </p>
+            </div>
+            <div class="features-grid">
+              <div class="feature-card animate-up">
+                <div class="feature-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path
-                      d="M4 12.5L9 17.5L20 6.5"
+                      d="M12 3l7 4v10l-7 4-7-4V7l7-4z"
                       stroke="currentColor"
-                      stroke-width="2.2"
+                      stroke-width="1.6"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9 12l2 2 4-4"
+                      stroke="currentColor"
+                      stroke-width="1.6"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                   </svg>
-                  98% onboarding satisfaction this quarter
-                </span>
+                </div>
+                <h3>Insight autopilot</h3>
+                <p>
+                  Automate recruitment, scheduling, note-taking and synthesis with workflows tuned to
+                  qualitative excellence.
+                </p>
+                <a href="get-started.html">See how scheduling works &rarr;</a>
+              </div>
+              <div class="feature-card animate-up" data-delay="80">
+                <div class="feature-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M4 7h16M4 12h10M4 17h7"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="18" cy="17" r="3" stroke="currentColor" stroke-width="1.6" />
+                  </svg>
+                </div>
+                <h3>Unified research canvas</h3>
+                <p>
+                  Merge interviews, support tickets, surveys and product analytics into a single
+                  narrative your stakeholders can act on in real time.
+                </p>
+                <a href="blog.html">Read the research canvas guide &rarr;</a>
+              </div>
+              <div class="feature-card animate-up" data-delay="140">
+                <div class="feature-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.6" />
+                    <path d="M12 8v4l2.5 2.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+                  </svg>
+                </div>
+                <h3>Always-on discovery</h3>
+                <p>
+                  Run continuous discovery programs with templates that keep every team member aligned
+                  on outcomes, not just output.
+                </p>
+                <a href="get-started.html">Launch a discovery sprint &rarr;</a>
+              </div>
+              <div class="feature-card animate-up" data-delay="200">
+                <div class="feature-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 5v14M5 12h14"
+                      stroke="currentColor"
+                      stroke-width="1.6"
+                      stroke-linecap="round"
+                    />
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6" />
+                  </svg>
+                </div>
+                <h3>Stakeholder resonance</h3>
+                <p>
+                  Deliver interactive briefings with moment-to-moment evidence so leadership feels the
+                  customer impact instantly.
+                </p>
+                <a href="contact.html">Request a tailored demo &rarr;</a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="features">
-        <div class="container">
-          <div class="section-heading">
-            <span class="badge-light">Why teams choose Hinn</span>
-            <h2>Control every touchpoint in a single collaborative canvas.</h2>
-            <p>
-              Replace spreadsheets and fragmented tools with a workflow that
-              keeps revenue, product, and success teams aligned on what matters
-              most.
-            </p>
-          </div>
-
-          <div class="feature-grid">
-            <article class="feature-card">
-              <div class="feature-icon">⚡</div>
-              <h3>Adaptive playbooks</h3>
+        <section id="workflow">
+          <div class="section-inner">
+            <div class="section-header animate-up">
+              <span class="section-eyebrow">How it works</span>
+              <h2>From spark to strategy in four collaborative beats.</h2>
               <p>
-                Build reusable templates that automatically adjust deadlines and
-                owners when priorities change.
-              </p>
-              <ul>
-                <li>Conditional milestones &amp; branching logic</li>
-                <li>Auto-assign tasks based on capacity</li>
-                <li>Mirror updates into Salesforce &amp; HubSpot</li>
-              </ul>
-            </article>
-            <article class="feature-card">
-              <div class="feature-icon">🔍</div>
-              <h3>Live journey analytics</h3>
-              <p>
-                Understand retention drivers with a narrow lens on every
-                customer cohort and executive stakeholder.
-              </p>
-              <ul>
-                <li>Segment performance by industry &amp; ARR</li>
-                <li>Forecast time-to-value automatically</li>
-                <li>Historical trendline &amp; anomaly alerts</li>
-              </ul>
-            </article>
-            <article class="feature-card">
-              <div class="feature-icon">🤝</div>
-              <h3>Shared customer workspaces</h3>
-              <p>
-                Give customers a branded command center with docs, decisions, and
-                real-time chat in one place.
-              </p>
-              <ul>
-                <li>Secure guest access with audit logs</li>
-                <li>Co-edit agendas &amp; review recordings</li>
-                <li>Translate updates into 26 languages</li>
-              </ul>
-            </article>
-            <article class="feature-card">
-              <div class="feature-icon">🧠</div>
-              <h3>AI teammate, built-in</h3>
-              <p>
-                Summarize calls, draft success plans, and suggest upsell moments
-                with Hinn Copilot.
-              </p>
-              <ul>
-                <li>Instant mutual action plan drafts</li>
-                <li>Smart risk detection &amp; escalations</li>
-                <li>Auto-generated executive updates</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="workflow">
-        <div class="container">
-          <div class="workflow glass-card">
-            <div class="section-heading">
-              <span class="badge-light">Designed for alignment</span>
-              <h2>Ship onboarding like your team launches products.</h2>
-              <p>
-                Hinn coordinates every teammate around a single source of truth —
-                from kickoff to handoff.
+                Hinn guides teams through repeatable ritualscontext framing, exploration, synthesis
+                and communicationso insights never stall behind manual busywork.
               </p>
             </div>
-            <ol class="workflow-steps">
-              <li>
-                <div class="workflow-index">01</div>
-                <div class="workflow-copy">
-                  <h3>Launch from a tailored template</h3>
-                  <p>
-                    Import your best mutual action plans or start with our
-                    pre-built libraries for SaaS, fintech, or enterprise.
-                  </p>
-                  <span class="note">Minutes, not weeks to implement</span>
-                </div>
-              </li>
-              <li>
-                <div class="workflow-index">02</div>
-                <div class="workflow-copy">
-                  <h3>Automate the repetitive work</h3>
-                  <p>
-                    Auto-send status recaps, meeting notes, and stakeholder
-                    summaries without leaving your CRM.
-                  </p>
-                  <span class="note">Works with HubSpot, Salesforce, Slack</span>
-                </div>
-              </li>
-              <li>
-                <div class="workflow-index">03</div>
-                <div class="workflow-copy">
-                  <h3>Measure the right signals</h3>
-                  <p>
-                    Spot trends across cohorts, predict churn risk, and prove the
-                    impact of onboarding on revenue.
-                  </p>
-                  <span class="note">See value time, NPS, adoption in real-time</span>
-                </div>
-              </li>
-            </ol>
-          </div>
-        </div>
-      </section>
-
-      <section id="stories">
-        <div class="container">
-          <div class="section-heading">
-            <span class="badge-light">Trusted by growth leaders</span>
-            <h2>Teams shipping category-defining experiences choose Hinn.</h2>
-            <p>
-              We partner with customer success, RevOps, and product teams to
-              accelerate value for thousands of customers every quarter.
-            </p>
-          </div>
-          <div class="testimonial-grid">
-            <article class="testimonial-card">
-              <blockquote>
-                “Before Hinn we stitched together six tools and still missed key
-                milestones. Now every customer has a personalized journey and we
-                act on risk signals days earlier.”
-              </blockquote>
-              <div class="testimonial-meta">
-                <span class="testimonial-avatar">KB</span>
-                <div>
-                  <strong>Kai Bennett</strong>
-                  <span>VP Customer Success, LumenIQ</span>
-                </div>
+            <div class="workflow">
+              <div class="workflow-step animate-up" data-step="Discover">
+                <h3>Frame the signal</h3>
+                <p>
+                  Align on the questions that matter. Quickly spin up cohorts, define outcomes and
+                  surface existing knowledge to avoid duplication.
+                </p>
               </div>
-            </article>
-            <article class="testimonial-card">
-              <blockquote>
-                “Hinn’s playbooks let us onboard strategic accounts with the
-                precision of a product launch. Expansion revenue is up 42% in one
-                quarter.”
-              </blockquote>
-              <div class="testimonial-meta">
-                <span class="testimonial-avatar">SA</span>
-                <div>
-                  <strong>Sara Ahmed</strong>
-                  <span>Head of Revenue Operations, Pilotwave</span>
-                </div>
+              <div class="workflow-step animate-up" data-step="Engage" data-delay="80">
+                <h3>Activate research</h3>
+                <p>
+                  Orchestrate interviews, diary studies and surveys with templates that adapt to your
+                  teams proven rituals.
+                </p>
               </div>
-            </article>
-            <article class="testimonial-card">
-              <blockquote>
-                “The executive status pages are a game changer. Our champions feel
-                confident sharing updates internally without our team jumping in
-                every time.”
-              </blockquote>
-              <div class="testimonial-meta">
-                <span class="testimonial-avatar">JG</span>
-                <div>
-                  <strong>Joel Garcia</strong>
-                  <span>Director of Implementation, Starkly</span>
-                </div>
+              <div class="workflow-step animate-up" data-step="Synthesize" data-delay="140">
+                <h3>Sense-making canvas</h3>
+                <p>
+                  Hinn highlights patterns, contradictions and opportunities using AI that stays
+                  grounded in the raw voice of your customers.
+                </p>
               </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="pricing">
-        <div class="container">
-          <div class="section-heading">
-            <span class="badge-light">Pricing</span>
-            <h2>Simple plans that grow with your customer motion.</h2>
-            <p>
-              Try Hinn free for 14 days. Upgrade or cancel any time.
-            </p>
-          </div>
-          <div class="pricing-grid">
-            <article class="pricing-card">
-              <div>
-                <h3>Starter</h3>
-                <div class="price">$49<span>/seat · month</span></div>
+              <div class="workflow-cta animate-up" data-delay="220">
+                <h3>Empower outcomes</h3>
+                <p>
+                  Present adaptive stories that bridge research and execution. Keep product, design and
+                  GTM teams focused on what customers actually need.
+                </p>
+                <a class="btn btn-primary" href="get-started.html">Experience the workflow</a>
               </div>
-              <ul class="feature-list">
-                <li>Unlimited playbooks &amp; templates</li>
-                <li>CRM sync every 6 hours</li>
-                <li>Slack &amp; Teams integrations</li>
-                <li>Customer workspaces with branding</li>
-              </ul>
-              <a class="button ghost" href="#cta">Start for free</a>
-            </article>
-            <article class="pricing-card highlight">
-              <div>
-                <h3>Growth</h3>
-                <div class="price">$89<span>/seat · month</span></div>
-              </div>
-              <ul class="feature-list">
-                <li>Advanced automations &amp; branching</li>
-                <li>Real-time CRM + BI sync</li>
-                <li>AI Copilot summaries</li>
-                <li>OKR &amp; outcome tracking dashboards</li>
-              </ul>
-              <a class="button primary" href="#cta">Start free trial</a>
-            </article>
-            <article class="pricing-card">
-              <div>
-                <h3>Enterprise</h3>
-                <div class="price">Let’s talk<span>Custom annual</span></div>
-              </div>
-              <ul class="feature-list">
-                <li>Dedicated customer architect</li>
-                <li>Private data residency options</li>
-                <li>SSO, SCIM, and granular permissions</li>
-                <li>Executive QBRs &amp; training programs</li>
-              </ul>
-              <a class="button ghost" href="contact.html">Talk to sales</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="cta">
-        <div class="container">
-          <div class="cta-section glass-card">
-            <h2>Build journeys your customers brag about.</h2>
-            <p>
-              Join onboarding leaders who trust Hinn to accelerate time-to-value
-              and deepen long-term partnerships.
-            </p>
-            <div class="hero-actions" style="justify-content: center">
-              <a class="button primary" href="get-started.html">Create a workspace</a>
-              <a class="button ghost" href="blog.html">Explore playbooks</a>
             </div>
-            <span class="badge-light"
-              >No credit card • SOC 2 Type II • Enterprise ready</span
-            >
+            <div class="stats-grid">
+              <div class="stats-item animate-up">
+                <strong>+28%</strong>
+                <span>Feature adoption after first quarter</span>
+              </div>
+              <div class="stats-item animate-up" data-delay="80">
+                <strong>60 hrs</strong>
+                <span>Ops time reclaimed per month</span>
+              </div>
+              <div class="stats-item animate-up" data-delay="140">
+                <strong>94%</strong>
+                <span>Teams reporting higher clarity</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
 
-    <footer>
-      <div class="container">
+        <section id="stories">
+          <div class="section-inner">
+            <div class="section-header animate-up">
+              <span class="section-eyebrow">Signals in motion</span>
+              <h2>Designed with researchers, loved by product, championed by customers.</h2>
+              <p>
+                Hinn is built with continuous discovery in mind. Teams bring us their toughest customer
+                questions and leave with a compass for product, service and experience innovation.
+              </p>
+            </div>
+            <div class="testimonials">
+              <div class="testimonial-card animate-up">
+                <div class="testimonial-text">
+                  Hinn transformed our understanding of complex buyer journeys. Our researchers ship
+                  synthesis in days, not weeks, with richer evidence and shared conviction.
+                </div>
+                <div class="person">
+                  <div class="avatar">SL</div>
+                  <div>
+                    <strong>Sara Lopez</strong>
+                    <span>Director of Research, Lumenary</span>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-card animate-up" data-delay="100">
+                <div class="testimonial-text">
+                  We plug support signals straight into Hinn. The system surfaces unmet needs while
+                  keeping us anchored in the voices behind every ticket.
+                </div>
+                <div class="person">
+                  <div class="avatar">TM</div>
+                  <div>
+                    <strong>Tony Mbae</strong>
+                    <span>Head of CX, Arcadia Labs</span>
+                  </div>
+                </div>
+              </div>
+              <div class="testimonial-card animate-up" data-delay="160">
+                <div class="testimonial-text">
+                  From strategy to execution, Hinn is now the meeting place for insight. Its where
+                  our teams agree on the customer truth before building anything new.
+                </div>
+                <div class="person">
+                  <div class="avatar">EK</div>
+                  <div>
+                    <strong>Emi Kato</strong>
+                    <span>VP Product, Northwind CX</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="cta-panel animate-up" data-delay="200">
+              <div>
+                <h2>Ready to build human-centred velocity?</h2>
+                <p>
+                  Launch the Hinn platform and run your first research ritual in under 20 minutes.
+                  Bring your team, your favourite tools and well meet you with proven blueprints.
+                </p>
+              </div>
+              <div class="cta-actions">
+                <a class="btn btn-primary" href="get-started.html">Start free trial</a>
+                <a class="btn btn-ghost" href="contact.html">Book a collaborative demo</a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
         <div class="footer-inner">
           <div class="footer-brand">
-            <a class="logo" href="#home">Hinn</a>
+            <a class="brand" href="index.html">
+              <span class="brand-icon">H</span>
+              Hinn
+            </a>
             <p>
-              Software for revenue teams who turn onboarding into an unfair
-              advantage.
+              The intelligence layer for human-centred teams. Discover, synthesize and act on customer
+              truth without the busywork.
             </p>
-          </div>
-          <div class="footer-links">
-            <strong>Product</strong>
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="get-started.html">Get started</a>
-            <a href="blog.html">Product updates</a>
           </div>
           <div class="footer-links">
             <strong>Company</strong>
+            <a href="blog.html">Insights & resources</a>
             <a href="contact.html">Contact</a>
-            <a href="mailto:hello@hinn.co">hello@hinn.co</a>
-            <a href="#">Security</a>
-            <a href="#">Status</a>
+            <a href="mailto:hello@hinn.ai">Press</a>
           </div>
           <div class="footer-links">
-            <strong>Resources</strong>
-            <a href="blog.html">Blog</a>
-            <a href="#stories">Customer stories</a>
-            <a href="#workflow">Onboarding checklists</a>
-            <a href="#">API &amp; docs</a>
+            <strong>Platform</strong>
+            <a href="#features">Capabilities</a>
+            <a href="get-started.html">Templates</a>
+            <a href="contact.html">Security</a>
+          </div>
+          <div class="footer-links">
+            <strong>Stay in the loop</strong>
+            <a href="mailto:hello@hinn.ai">Join the signal letter</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://www.twitter.com" target="_blank" rel="noreferrer">Twitter</a>
           </div>
         </div>
-        <div class="footer-meta">
-          © <span id="year"></span> Hinn. Made with purpose for customer-obsessed
-          teams.
+        <div class="footer-bottom">
+          <span>&copy; <span id="year"></span> Hinn. All rights reserved.</span>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy</a>
+            <span>&bull;</span>
+            <a href="#">Terms</a>
+            <span>&bull;</span>
+            <a href="contact.html">Accessibility</a>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
     <script>
-      (function () {
-        const root = document.body;
-        const toggle = document.querySelector("[data-theme-toggle]");
-        if (!toggle) return;
-
-        const icon = toggle.querySelector("[data-icon]");
-        const label = toggle.querySelector("[data-label]");
-
-        const applyTheme = (theme) => {
-          const isDark = theme === "dark";
-          root.dataset.theme = isDark ? "dark" : "light";
-          toggle.setAttribute("aria-pressed", String(isDark));
-          if (icon) icon.textContent = isDark ? "☀️" : "🌙";
-          if (label)
-            label.textContent = isDark
-              ? "Switch to light mode"
-              : "Switch to dark mode";
-          try {
-            localStorage.setItem("hinn-theme", isDark ? "dark" : "light");
-          } catch (error) {
-            console.warn("Theme persistence unavailable", error);
-          }
-        };
-
-        let storedTheme;
-        try {
-          storedTheme = localStorage.getItem("hinn-theme");
-        } catch (error) {
-          storedTheme = null;
-        }
-
-        if (!storedTheme && window.matchMedia) {
-          storedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light";
-        }
-
-        applyTheme(storedTheme === "dark" ? "dark" : "light");
-
-        toggle.addEventListener("click", () => {
-          const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-          applyTheme(nextTheme);
+      const mobileToggle = document.querySelector(".mobile-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+      if (mobileToggle && navMenu) {
+        mobileToggle.addEventListener("click", () => {
+          navMenu.classList.toggle("open");
         });
-      })();
+      }
 
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      const animateElements = document.querySelectorAll(".animate-up");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const delay = entry.target.dataset.delay || 0;
+              setTimeout(() => entry.target.classList.add("is-visible"), Number(delay));
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+        }
+      );
+
+      animateElements.forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
