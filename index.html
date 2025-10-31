@@ -1,578 +1,1455 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hinn.dev — Monthly websites, hosting and updates</title>
-    <meta name="description" content="Launch a professional site with monthly design, hosting, updates, and support — no upfront build cost." />
-
-    <!-- Tailwind CSS via CDN (for a static HTML workflow) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Inter font via Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Favicon (inline SVG matching accent color) -->
-    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect rx="12" width="64" height="64" fill="%23d97759"/><text x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text></svg>'>
-    <meta name="theme-color" content="#d97759" />
-
-    <!-- Theme tokens adapted from hinn.io (not pixel-identical) -->
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Hinn helps modern teams orchestrate repeatable customer onboarding with automation, analytics, and collaborative playbooks."
+    />
+    <title>Hinn — Smarter customer onboarding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       :root {
-        /* Ultra light palette */
-        --bg-page: #fffcf5;   /* near‑white warm background */
-        --panel: #fffcf5;     /* panels match background */
-        --panel-hover: #faf3e3; /* very subtle hover */
-        --border: #eee6cf;    /* very light warm borders */
-        --accent: #d97759;    /* warm coral accent */
-        --background: var(--bg-page);
-        --foreground: #0a0a0a; /* primary text */
-
-        /* Accent tints on light */
-        --accent-primary: var(--accent);
-        --accent-hover: color-mix(in srgb, var(--accent) 90%, #000000);
-        --accent-subtle: color-mix(in srgb, var(--accent) 8%, #ffffff);
-        --accent-muted: color-mix(in srgb, var(--accent) 15%, #ffffff);
-        --accent-soft: color-mix(in srgb, var(--accent) 25%, #ffffff);
-
-        /* Typography tokens */
-        --text-primary: #0a0a0a;
-        --text-secondary: #404040;
-        --text-tertiary: #6b6b6b;
-        --text-accent: var(--accent-primary);
-
-        /* Legacy success tokens (mapped to new system) */
-        --success-accent: var(--accent-primary);
-        --success-bg: var(--accent-subtle);
-        --success-border: var(--accent-soft);
-        --success-pill-bg: var(--accent-muted);
-        --success-pill-text: color-mix(in srgb, var(--accent) 75%, #000000);
+        color-scheme: light;
+        --bg-gradient: radial-gradient(
+            circle at 20% -10%,
+            rgba(96, 70, 255, 0.18),
+            rgba(96, 70, 255, 0)
+          ),
+          radial-gradient(
+            circle at 90% 0%,
+            rgba(0, 200, 210, 0.22),
+            rgba(0, 200, 210, 0)
+          ),
+          linear-gradient(180deg, #fbfbfe 0%, #f2f5ff 100%);
+        --color-bg: rgba(255, 255, 255, 0.78);
+        --color-surface: rgba(255, 255, 255, 0.94);
+        --color-border: rgba(96, 70, 255, 0.18);
+        --color-card-border: rgba(99, 91, 124, 0.18);
+        --color-text: #211b33;
+        --color-muted: #5f567a;
+        --color-inverse: #ffffff;
+        --color-primary: #6046ff;
+        --color-primary-soft: rgba(96, 70, 255, 0.12);
+        --color-accent: #00c6b8;
+        --glow: 0 30px 60px rgba(63, 44, 177, 0.12);
+        --blurred-surface: rgba(255, 255, 255, 0.6);
+        --shadow-card: 0 22px 45px -25px rgba(33, 27, 51, 0.35);
+        --radius-lg: 28px;
+        --radius-md: 18px;
+        --radius-sm: 12px;
+        --transition: 200ms ease;
       }
 
-      html, body { background-color: var(--bg-page); }
+      body[data-theme="dark"] {
+        color-scheme: dark;
+        --bg-gradient: radial-gradient(
+            circle at 9% -5%,
+            rgba(96, 70, 255, 0.5),
+            rgba(96, 70, 255, 0)
+          ),
+          radial-gradient(
+            circle at 80% 0%,
+            rgba(0, 198, 179, 0.35),
+            rgba(0, 198, 179, 0)
+          ),
+          linear-gradient(180deg, #0c0b16 0%, #141426 100%);
+        --color-bg: rgba(18, 16, 31, 0.7);
+        --color-surface: rgba(22, 21, 38, 0.92);
+        --color-border: rgba(126, 113, 255, 0.25);
+        --color-card-border: rgba(126, 113, 255, 0.24);
+        --color-text: #f4f2ff;
+        --color-muted: #a3a0c1;
+        --color-inverse: #111123;
+        --color-primary: #9184ff;
+        --color-primary-soft: rgba(148, 139, 255, 0.12);
+        --color-accent: #3de8d2;
+        --glow: 0 25px 60px rgba(17, 13, 54, 0.45);
+        --blurred-surface: rgba(18, 16, 31, 0.6);
+        --shadow-card: 0 25px 36px -28px rgba(0, 0, 0, 0.6);
+      }
+
       body {
-        font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-        color: var(--text-secondary);
+        margin: 0;
+        font-family: "Inter", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--color-text);
+        background: var(--bg-gradient);
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        transition: background 450ms ease, color 250ms ease;
       }
-      /* Utility classes to mirror the theme */
-      .text-primary { color: var(--text-primary); }
-      .text-secondary { color: var(--text-secondary); }
-      .text-tertiary { color: var(--text-tertiary); }
-      .bg-panel { background-color: var(--panel); }
-      .hover\:bg-panel-hover:hover { background-color: var(--panel-hover); }
-      .border-soft { border-color: var(--border); }
-      .bg-accent-primary { background-color: var(--accent-primary); }
-      .text-accent-primary { color: var(--accent-primary); }
-      .ring-accent-primary { --tw-ring-color: var(--accent-primary); }
-      .shadow-soft { box-shadow: 0 1px 1.5px rgba(0,0,0,0.03), 0 1.5px 6px rgba(0,0,0,0.05); }
-      .shadow-hover { transition: box-shadow .2s ease; box-shadow: 0 1px 3px rgba(0,0,0,.04), 0 3px 10px rgba(0,0,0,.06); }
-      .shadow-hover:hover { box-shadow: 0 3px 6px rgba(0,0,0,.05), 0 6px 16px rgba(0,0,0,.10); }
-      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      .no-scrollbar::-webkit-scrollbar { display: none; }
 
-      /* Warm utility bridges for Tailwind neutrals */
-      .bg-white { background-color: var(--panel) !important; }
-      .hover\:bg-neutral-50:hover { background-color: var(--panel-hover) !important; }
-      .ring-neutral-200 { --tw-ring-color: var(--border) !important; }
-      .border-neutral-200, .border-neutral-300 { border-color: var(--border) !important; }
-
-      /* Page background helpers */
-      .bg-page { background-color: var(--bg-page); }
-      .bg-page-90 { background-color: color-mix(in srgb, var(--bg-page) 90%, transparent); }
-      .bg-true-white { background-color: #ffffff !important; }
-
-      /* Unified button design */
-      .btn {
-        display: inline-flex; align-items: center; justify-content: center;
-        padding: .7rem 1.1rem; border-radius: 9999px; font-weight: 600;
-        transition: all .2s ease; text-decoration: none; gap: .5rem;
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(
+            130deg,
+            rgba(255, 255, 255, 0.35) 0%,
+            rgba(255, 255, 255, 0) 45%
+          ),
+          linear-gradient(
+            200deg,
+            rgba(255, 255, 255, 0.35) 0%,
+            rgba(255, 255, 255, 0) 40%
+          );
+        pointer-events: none;
+        z-index: -2;
       }
-      .btn-primary { background: var(--accent-primary); color: #fff; box-shadow: 0 6px 20px rgba(217,119,89,.18); }
-      .btn-primary:hover { filter: brightness(.98); transform: translateY(-1px); box-shadow: 0 8px 26px rgba(217,119,89,.22); }
-      .btn-primary:active { transform: translateY(0); box-shadow: 0 3px 10px rgba(217,119,89,.18); }
-      .btn-outline { background: transparent; color: var(--accent-primary); border: 1px solid var(--accent-soft); }
-      .btn-outline:hover { background: var(--accent-subtle); border-color: var(--accent-soft); }
-      .btn-white { background: #ffffff; color: var(--accent-primary); border: 1px solid var(--accent-soft); }
-      .btn-white:hover { background: color-mix(in srgb, #ffffff 90%, var(--accent-subtle)); }
 
-      /* Map existing utility patterns to new button look */
-      a.bg-accent-primary, button.bg-accent-primary { border-radius: 9999px; font-weight: 600; box-shadow: 0 6px 20px rgba(217,119,89,.18); }
-      a.bg-accent-primary:hover, button.bg-accent-primary:hover { filter: brightness(.98); transform: translateY(-1px); box-shadow: 0 8px 26px rgba(217,119,89,.22); }
-      a.ring-accent-primary, button.ring-accent-primary { border-radius: 9999px; font-weight: 600; }
+      body::after {
+        content: "";
+        position: fixed;
+        top: 18%;
+        right: -150px;
+        width: 380px;
+        height: 380px;
+        background: radial-gradient(
+          circle,
+          rgba(96, 70, 255, 0.3) 0%,
+          rgba(96, 70, 255, 0) 70%
+        );
+        filter: blur(30px);
+        opacity: 0.9;
+        pointer-events: none;
+        z-index: -3;
+      }
 
-      /* Typewriter caret */
-      @keyframes type-caret-blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
-      .type-caret { display:inline-block; width:1ch; border-right:2px solid currentColor; margin-left:2px; animation:type-caret-blink 1s steps(1,end) infinite; }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-      /* Smooth scroll and offset for sticky header/tabs */
-      html { scroll-behavior: smooth; }
-      #showcase { scroll-margin-top: 7rem; }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
 
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+
+      .container {
+        width: min(1120px, calc(100% - 3rem));
+        margin: 0 auto;
+      }
+
+      .glass-card {
+        background: var(--color-surface);
+        border: 1px solid var(--color-card-border);
+        box-shadow: var(--shadow-card);
+        border-radius: var(--radius-lg);
+        backdrop-filter: blur(18px);
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: var(--color-primary-soft);
+        color: var(--color-primary);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+      }
+
+      .badge-light {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(99, 91, 124, 0.08);
+        color: var(--color-muted);
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        padding: 0.75rem 1.35rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: transform var(--transition), box-shadow var(--transition),
+          background var(--transition), color var(--transition),
+          border-color var(--transition);
+        text-decoration: none;
+        min-height: 2.75rem;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button:focus-visible {
+        outline: 3px solid rgba(0, 198, 179, 0.65);
+        outline-offset: 2px;
+      }
+
+      .button.primary {
+        background: linear-gradient(120deg, var(--color-primary), #815cff);
+        color: var(--color-inverse);
+        box-shadow: 0 18px 35px -20px rgba(96, 70, 255, 0.7);
+      }
+
+      .button.primary:hover {
+        box-shadow: 0 18px 45px -18px rgba(96, 70, 255, 0.78);
+      }
+
+      .button.ghost {
+        border-color: rgba(99, 91, 124, 0.18);
+        background: rgba(255, 255, 255, 0.65);
+        color: var(--color-text);
+      }
+
+      body[data-theme="dark"] .button.ghost {
+        background: rgba(26, 23, 38, 0.8);
+        color: var(--color-text);
+      }
+
+      .button.surface {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.1);
+        color: var(--color-text);
+      }
+
+      .button.small {
+        padding-inline: 0.95rem;
+        min-height: 2.35rem;
+        font-size: 0.85rem;
+      }
+
+      .button.icon-only {
+        width: 2.75rem;
+        padding: 0;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 1.5rem;
+        z-index: 100;
+      }
+
+      .site-header .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 0.85rem 1.1rem;
+        border-radius: 999px;
+        background: var(--color-bg);
+        border: 1px solid var(--color-border);
+        backdrop-filter: blur(18px);
+        box-shadow: var(--glow);
+      }
+
+      .logo {
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 1.1rem;
+        letter-spacing: -0.02em;
+        color: var(--color-text);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .logo::before {
+        content: "";
+        width: 12px;
+        height: 12px;
+        border-radius: 4px;
+        background: linear-gradient(140deg, var(--color-primary), var(--color-accent));
+        box-shadow: 0 0 15px rgba(96, 70, 255, 0.55);
+      }
+
+      .primary-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.35rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--color-muted);
+      }
+
+      .primary-nav a {
+        position: relative;
+        padding: 0.35rem 0;
+      }
+
+      .primary-nav a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -0.3rem;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
+        border-radius: 999px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform var(--transition);
+      }
+
+      .primary-nav a:hover::after,
+      .primary-nav a:focus-visible::after {
+        transform: scaleX(1);
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      main {
+        padding-top: 6rem;
+      }
+
+      section {
+        padding-block: clamp(4rem, 10vw, 7.5rem);
+      }
+
+      .hero {
+        padding-top: clamp(2rem, 8vw, 6.5rem);
+      }
+
+      .hero .inner {
+        display: grid;
+        align-items: end;
+        gap: clamp(2rem, 5vw, 4.5rem);
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        font-size: clamp(2.35rem, 5vw, 3.8rem);
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        margin: 0;
+        max-width: 44ch;
+        color: var(--color-muted);
+        font-size: 1.05rem;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.9rem;
+        margin-top: 0.2rem;
+      }
+
+      .stat-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1rem;
+        margin-top: 1.75rem;
+      }
+
+      .stat-card {
+        padding: 1.35rem 1.4rem;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.65);
+        border: 1px solid rgba(96, 70, 255, 0.12);
+        backdrop-filter: blur(12px);
+      }
+
+      body[data-theme="dark"] .stat-card {
+        background: rgba(24, 22, 38, 0.78);
+        border-color: rgba(145, 132, 255, 0.16);
+      }
+
+      .stat-card strong {
+        display: block;
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: var(--color-text);
+      }
+
+      .stat-card span {
+        color: var(--color-muted);
+        font-size: 0.88rem;
+      }
+
+      .hero-visual {
+        padding: 1.6rem;
+        background: var(--color-bg);
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-lg);
+      }
+
+      .hero-visual::before {
+        content: "";
+        position: absolute;
+        inset: -40% -20%;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(255, 255, 255, 0.28),
+          rgba(255, 255, 255, 0)
+        );
+        opacity: 0.65;
+        pointer-events: none;
+      }
+
+      .hero-visual::after {
+        content: "";
+        position: absolute;
+        inset: -55% -25%;
+        background: radial-gradient(
+          circle at 50% 0%,
+          rgba(96, 70, 255, 0.2),
+          rgba(96, 70, 255, 0)
+        );
+        opacity: 0.6;
+        mix-blend-mode: screen;
+        pointer-events: none;
+      }
+
+      .hero-visual-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+      }
+
+      .visual-row {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .visual-card {
+        flex: 1;
+        padding: 1rem;
+        border-radius: var(--radius-md);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(96, 70, 255, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .visual-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(96, 70, 255, 0.08), transparent 55%);
+        pointer-events: none;
+      }
+
+      body[data-theme="dark"] .visual-card {
+        background: rgba(24, 22, 38, 0.86);
+        border-color: rgba(145, 132, 255, 0.16);
+      }
+
+      .visual-card strong {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .visual-card p {
+        margin: 0.45rem 0 0;
+        font-size: 0.82rem;
+        color: var(--color-muted);
+      }
+
+      .visual-footer {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .avatar-stack {
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .avatar-stack span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        border: 2px solid var(--color-surface);
+        background: linear-gradient(135deg, rgba(96, 70, 255, 0.7), rgba(0, 198, 179, 0.7));
+        color: #fff;
+        font-size: 0.78rem;
+        font-weight: 600;
+        transform: translateX(calc(var(--n, 0) * -12px));
+      }
+
+      .avatar-stack span:not(:first-child) {
+        margin-left: -12px;
+      }
+
+      .visual-footnote {
+        font-size: 0.82rem;
+        color: var(--color-muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.45rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(96, 70, 255, 0.12);
+        border: 1px solid rgba(96, 70, 255, 0.18);
+      }
+
+      .section-heading {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: clamp(2rem, 5vw, 3rem);
+        max-width: 62ch;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-size: clamp(1.9rem, 4vw, 2.6rem);
+        font-family: "Plus Jakarta Sans", "Inter", sans-serif;
+        letter-spacing: -0.02em;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--color-muted);
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: clamp(1.4rem, 3vw, 1.85rem);
+      }
+
+      .feature-card {
+        padding: 1.8rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(96, 70, 255, 0.15);
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(14px);
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        transition: transform var(--transition), border-color var(--transition);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(96, 70, 255, 0.3);
+      }
+
+      body[data-theme="dark"] .feature-card {
+        background: rgba(26, 23, 38, 0.82);
+        border-color: rgba(145, 132, 255, 0.16);
+      }
+
+      .feature-icon {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, rgba(96, 70, 255, 0.2), rgba(0, 198, 179, 0.2));
+        color: var(--color-primary);
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .feature-card h3 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+
+      .feature-card p {
+        margin: 0;
+        color: var(--color-muted);
+        font-size: 0.95rem;
+      }
+
+      .feature-card ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        color: var(--color-muted);
+        font-size: 0.88rem;
+        display: grid;
+        gap: 0.4rem;
+      }
+
+      .feature-card strong {
+        font-size: 0.85rem;
+        color: var(--color-text);
+        letter-spacing: 0.02em;
+      }
+
+      .workflow {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(96, 70, 255, 0.12);
+        backdrop-filter: blur(14px);
+        padding: clamp(2.2rem, 6vw, 3.5rem);
+        display: grid;
+        gap: 2.4rem;
+      }
+
+      body[data-theme="dark"] .workflow {
+        background: rgba(18, 16, 31, 0.74);
+        border-color: rgba(148, 139, 255, 0.16);
+      }
+
+      .workflow-steps {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 1.6rem;
+      }
+
+      .workflow-steps li {
+        display: grid;
+        grid-template-columns: minmax(0, 0.18fr) minmax(0, 1fr);
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      .workflow-index {
+        width: 52px;
+        height: 52px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+        display: grid;
+        place-items: center;
+        color: var(--color-inverse);
+        font-weight: 600;
+        font-size: 1.05rem;
+        box-shadow: 0 18px 28px -16px rgba(96, 70, 255, 0.75);
+      }
+
+      .workflow-copy h3 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      .workflow-copy p {
+        margin: 0.35rem 0 0;
+        color: var(--color-muted);
+        font-size: 0.94rem;
+      }
+
+      .workflow-copy .note {
+        margin-top: 0.65rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.4rem 0.65rem;
+        border-radius: 999px;
+        background: rgba(0, 198, 179, 0.12);
+        color: var(--color-accent);
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .testimonial-card {
+        padding: 1.8rem;
+        border-radius: var(--radius-lg);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(96, 70, 255, 0.12);
+        display: grid;
+        gap: 1.2rem;
+        position: relative;
+      }
+
+      .testimonial-card::before {
+        content: "\201C";
+        font-size: 5rem;
+        line-height: 0.6;
+        color: rgba(96, 70, 255, 0.2);
+        position: absolute;
+        top: 16px;
+        left: 22px;
+        pointer-events: none;
+      }
+
+      body[data-theme="dark"] .testimonial-card {
+        background: rgba(24, 22, 38, 0.82);
+        border-color: rgba(145, 132, 255, 0.16);
+      }
+
+      .testimonial-card blockquote {
+        margin: 0;
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--color-text);
+      }
+
+      .testimonial-meta {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .testimonial-avatar {
+        width: 44px;
+        height: 44px;
+        border-radius: 999px;
+        border: 2px solid var(--color-surface);
+        background: linear-gradient(135deg, rgba(96, 70, 255, 0.3), rgba(0, 198, 179, 0.3));
+        display: grid;
+        place-items: center;
+        color: var(--color-primary);
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .testimonial-meta span {
+        display: block;
+        font-size: 0.85rem;
+        color: var(--color-muted);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.4rem;
+      }
+
+      .pricing-card {
+        position: relative;
+        padding: 2.25rem 2rem;
+        border-radius: calc(var(--radius-lg) + 6px);
+        background: rgba(255, 255, 255, 0.72);
+        border: 1px solid rgba(96, 70, 255, 0.12);
+        display: grid;
+        gap: 1.4rem;
+      }
+
+      body[data-theme="dark"] .pricing-card {
+        background: rgba(24, 22, 38, 0.82);
+        border-color: rgba(145, 132, 255, 0.16);
+      }
+
+      .pricing-card.highlight {
+        border: 1px solid rgba(0, 198, 179, 0.35);
+        box-shadow: 0 20px 45px -25px rgba(0, 198, 179, 0.65);
+      }
+
+      .pricing-card.highlight::after {
+        content: "Most popular";
+        position: absolute;
+        top: -14px;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0.4rem 0.9rem;
+        border-radius: 999px;
+        background: linear-gradient(120deg, var(--color-primary), var(--color-accent));
+        color: var(--color-inverse);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+      }
+
+      .pricing-card h3 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+
+      .pricing-card .price {
+        font-size: 2.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .pricing-card .price span {
+        font-size: 0.9rem;
+        color: var(--color-muted);
+        font-weight: 500;
+      }
+
+      .feature-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 0.65rem;
+        font-size: 0.92rem;
+        color: var(--color-muted);
+      }
+
+      .feature-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .feature-list li::before {
+        content: "";
+        width: 0.55rem;
+        height: 0.55rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      }
+
+      .cta-section {
+        border-radius: calc(var(--radius-lg) + 12px);
+        padding: clamp(2.4rem, 6vw, 4rem);
+        background: linear-gradient(135deg, rgba(96, 70, 255, 0.87), rgba(0, 198, 179, 0.78));
+        color: #fff;
+        display: grid;
+        gap: 1.5rem;
+        text-align: center;
+      }
+
+      .cta-section h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4.5vw, 2.8rem);
+        letter-spacing: -0.01em;
+      }
+
+      .cta-section p {
+        margin: 0 auto;
+        max-width: 50ch;
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.85);
+      }
+
+      footer {
+        padding: 3rem 0 4rem;
+        color: var(--color-muted);
+      }
+
+      .footer-inner {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.8rem;
+        align-items: start;
+      }
+
+      .footer-brand p {
+        margin: 0.75rem 0 0;
+        max-width: 34ch;
+      }
+
+      .footer-links {
+        display: grid;
+        gap: 0.35rem;
+        font-size: 0.9rem;
+      }
+
+      .footer-meta {
+        margin-top: 2.5rem;
+        font-size: 0.82rem;
+        text-align: center;
+      }
+
+      @media (max-width: 1040px) {
+        .hero .inner {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          order: 2;
+        }
+
+        .hero-visual {
+          order: 1;
+        }
+      }
+
+      @media (max-width: 920px) {
+        .site-header {
+          top: 0.75rem;
+        }
+
+        .site-header .nav-container {
+          flex-wrap: wrap;
+          border-radius: 32px;
+        }
+
+        .primary-nav {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+          padding-top: 0.4rem;
+        }
+
+        .header-actions {
+          flex: 1;
+          justify-content: flex-end;
+        }
+      }
+
+      @media (max-width: 720px) {
+        body::after {
+          display: none;
+        }
+
+        .container {
+          width: min(100%, calc(100% - 2rem));
+        }
+
+        section {
+          padding-block: 4.5rem;
+        }
+
+        .hero {
+          padding-top: 3.5rem;
+        }
+
+        .header-actions {
+          order: 2;
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .button.icon-only {
+          width: 2.4rem;
+          min-height: 2.4rem;
+        }
+
+        .workflow-steps li {
+          grid-template-columns: minmax(0, 52px) minmax(0, 1fr);
+          align-items: start;
+        }
+
+        .workflow-index {
+          justify-self: center;
+        }
+      }
+
+      @media (max-width: 540px) {
+        .site-header .nav-container {
+          border-radius: 26px;
+        }
+
+        .hero h1 {
+          font-size: clamp(2.15rem, 9vw, 2.5rem);
+        }
+
+        .stat-grid {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+
+        .visual-row {
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
     </style>
   </head>
-  <body class="min-h-screen">
-    <!-- Site header -->
-    <header class="sticky top-0 z-40 bg-page-90 backdrop-blur border-b border-soft">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        <a href="#" class="flex items-center gap-2 font-semibold tracking-tight text-primary">
-          <!-- Inline SVG logo -->
-          <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="rounded-md">
-            <rect rx="12" width="64" height="64" fill="#d97759"/>
-            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text>
-          </svg>
-          <span class="sr-only">Hinn.dev</span>
-          <span aria-hidden="true">Hinn.dev</span>
-        </a>
-        <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-sm text-neutral-900" aria-label="Primary">
-          <a href="#overview" class="px-2 py-2 rounded-md hover:bg-neutral-50 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">Overview</a>
-          <!-- Features (megamenu) -->
-          <div class="relative" id="features-container">
-            <button id="features-button" type="button" aria-haspopup="true" aria-expanded="false" class="px-2 py-2 rounded-md hover:bg-neutral-50 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent inline-flex items-center gap-1 no-btn-shadow">
-              <span>Features</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div id="features-menu" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-[min(90vw,40rem)]">
-              <div class="rounded-xl border border-neutral-200 bg-white p-4 grid grid-cols-2 gap-3 text-neutral-900 shadow-elevated">
-                <a href="#features-website" class="rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Website</div>
-                  <div class="mt-1 text-xs text-neutral-800">Design + hosting + updates included.</div>
-                </a>
-                <a href="#features-sales" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Sales & Automation <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Funnels, forms, and workflows.</div>
-                </a>
-                <a href="#features-ai" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Artificial Intelligence <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Content, insights, and assistance.</div>
-                </a>
-                <a href="#features-payments" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Payments <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Subscriptions and one‑time purchases.</div>
-                </a>
-              </div>
-            </div>
-          </div>
-          <!-- Tools (megamenu) -->
-          <div class="relative" id="tools-container">
-            <button id="tools-button" type="button" aria-haspopup="true" aria-expanded="false" class="px-2 py-2 rounded-md hover:bg-neutral-50 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent inline-flex items-center gap-1 no-btn-shadow">
-              <span>Tools</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06z" clip-rule="evenodd"/></svg>
-            </button>
-            <div id="tools-menu" class="hidden absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 w-[min(90vw,44rem)]">
-              <div class="rounded-xl border border-neutral-200 bg-white p-4 grid grid-cols-2 md:grid-cols-3 gap-3 text-neutral-900 shadow-elevated">
-                <a href="#tools-ai-website-builder" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Ai Website Builder <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Generate and launch sites with AI assistance.</div>
-                </a>
-                <a href="#tools-ai-agents" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Ai Agents <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Automate support and operations with agents.</div>
-                </a>
-                <a href="#tools-sales" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Sales & Automation <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Funnels, workflows, and lead capture.</div>
-                </a>
-                <a href="#tools-payments" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Payment Processing <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Subscriptions and one‑time payments.</div>
-                </a>
-                <a href="#tools-custom-ai" class="relative rounded-lg p-3 hover:bg-neutral-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-success-accent">
-                  <div class="text-sm font-medium">Custom Ai solution <span class="ml-2 inline-flex items-center rounded-full bg-neutral-100 text-neutral-600 px-2 py-0.5 text-[10px] uppercase tracking-wide">Coming soon</span></div>
-                  <div class="mt-1 text-xs text-neutral-800">Tailored AI workflows for your business.</div>
-                </a>
-              </div>
-            </div>
-          </div>
-          
+  <body data-theme="light">
+    <header class="site-header">
+      <div class="container nav-container">
+        <a class="logo" href="#home">Hinn</a>
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="#features">Features</a>
+          <a href="#workflow">Workflow</a>
+          <a href="#stories">Stories</a>
+          <a href="#pricing">Pricing</a>
+          <a href="blog.html">Resources</a>
         </nav>
-        <div class="hidden md:flex items-center gap-2 lg:gap-3">
-          <a href="./get-started.html" class="btn btn-white">
-            <span>Get Started Today</span>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-          </a>
-          <a href="./get-started.html" class="btn btn-primary">Login</a>
-        </div>
-        <div class="flex md:hidden items-center gap-2">
-          <button id="menu-button" class="sm:hidden inline-flex items-center justify-center rounded-md p-2 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
-            <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
-            <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        <div class="header-actions">
+          <a class="button ghost small" href="contact.html">Contact sales</a>
+          <a class="button primary small" href="#pricing">Start free trial</a>
+          <button
+            class="button icon-only surface theme-toggle"
+            type="button"
+            aria-pressed="false"
+            data-theme-toggle
+          >
+            <span aria-hidden="true" data-icon>🌙</span>
+            <span class="sr-only" data-label>Switch to dark mode</span>
           </button>
-          <a href="./get-started.html" class="hidden sm:inline-flex items-center justify-center rounded-lg bg-accent-primary px-3.5 py-2 text-white text-sm font-medium hover:opacity-95 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">Get started</a>
         </div>
-      </div>
-      <!-- Mobile menu panel (overlay, does not push layout) -->
-      <div id="mobile-menu" class="sm:hidden hidden fixed top-14 inset-x-0 z-50 bg-white border-t border-soft shadow-soft max-h-[calc(100vh-56px)] overflow-auto" role="dialog" aria-modal="true">
-        <nav class="px-4 py-3 space-y-1 text-sm" aria-label="Mobile">
-          <a href="#overview" class="block px-2 py-2 rounded hover:bg-panel">Overview</a>
-          <a href="#showcase" class="block px-2 py-2 rounded hover:bg-panel">Showcase</a>
-          <div class="p-3.5 flex flex-col gap-2 bg-white">
-            <a href="./get-started.html" class="btn btn-outline w-full">
-              <span>Get Started Today</span>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-            </a>
-            <a href="./get-started.html" class="btn btn-primary w-full text-center">Login</a>
-          </div>
-        </nav>
       </div>
     </header>
 
-    <main>
-      <!-- Hero -->
-      <section id="overview" class="bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-20">
-          <div class="max-w-3xl mx-auto">
-            <div class="text-center">
-              <span class="inline-flex items-center gap-2 rounded-full ring-1 ring-gray-200 bg-true-white px-3 py-1 text-xs text-gray-600 shadow-soft">No setup fees • Cancel anytime</span>
-              <h1 class="mt-4 text-4xl md:text-5xl font-semibold leading-tight tracking-tight text-primary">
-                Pay‑by‑month websites
-                <span class="block text-accent-primary whitespace-nowrap">
-                  <span id="typed-text">design, hosting, updates</span><span class="type-caret" aria-hidden="true"></span>
-                </span>
-              </h1>
-              <p class="mt-4 text-base md:text-lg text-secondary max-w-xl">
-                Launch a professional site without large upfront costs. One simple monthly plan covers design,
-                hosting, updates, and support—so you can focus on your business.
-              </p>
-              <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="#get-started" class="btn btn-primary">
-                  Get started
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="ml-2 h-4 w-4" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
-                </a>
-                <a href="#showcase" class="btn btn-white">
-                  See showcase
-                </a>
+    <main id="home">
+      <section class="hero">
+        <div class="container inner">
+          <div class="hero-copy">
+            <span class="pill">New • Adaptive customer journeys</span>
+            <h1>Orchestrate onboarding that converts every time.</h1>
+            <p>
+              Hinn unifies playbooks, automated nudges, and live analytics so
+              GTM teams can deliver a personal onboarding experience at scale —
+              without adding more headcount.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#cta">Create a free workspace</a>
+              <a class="button ghost" href="get-started.html">See product tour</a>
+            </div>
+            <div class="stat-grid">
+              <div class="stat-card">
+                <strong>92%</strong>
+                <span>Of teams activate customers 2× faster with Hinn.</span>
               </div>
-              <ul class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm text-secondary max-w-2xl mx-auto">
-                <li class="flex items-center gap-2"><svg class="h-4 w-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Design + build included</span></li>
-                <li class="flex items-center gap-2"><svg class="h-4 w-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Managed hosting & SSL</span></li>
-                <li class="flex items-center gap-2"><svg class="h-4 w-4 text-accent-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>Monthly content updates</span></li>
-              </ul>
+              <div class="stat-card">
+                <strong>48 hrs</strong>
+                <span>Average time saved per week across CS &amp; RevOps.</span>
+              </div>
+              <div class="stat-card">
+                <strong>35%</strong>
+                <span>Increase in expansion revenue from guided moments.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual glass-card" role="img" aria-label="Illustration showing Hinn automations and collaboration">
+            <div class="hero-visual-content">
+              <div class="visual-row">
+                <div class="visual-card">
+                  <strong>Kickoff packet</strong>
+                  <p>Auto-shares resources after the first discovery call.</p>
+                </div>
+                <div class="visual-card">
+                  <strong>Health signals</strong>
+                  <p>AI highlights blockers when momentum begins to stall.</p>
+                </div>
+              </div>
+              <div class="visual-row">
+                <div class="visual-card">
+                  <strong>Smart nudges</strong>
+                  <p>Trigger customer reminders with Slack and email in sync.</p>
+                </div>
+                <div class="visual-card">
+                  <strong>Executive view</strong>
+                  <p>Share live status pages with milestones and owners.</p>
+                </div>
+              </div>
+              <div class="visual-footer">
+                <div class="avatar-stack">
+                  <span style="--n: 0">AR</span>
+                  <span style="--n: 1">JS</span>
+                  <span style="--n: 2">LK</span>
+                  <span style="--n: 3">MT</span>
+                </div>
+                <span class="visual-footnote">
+                  <svg
+                    aria-hidden="true"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                  >
+                    <path
+                      d="M4 12.5L9 17.5L20 6.5"
+                      stroke="currentColor"
+                      stroke-width="2.2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  98% onboarding satisfaction this quarter
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      
+      <section id="features">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-light">Why teams choose Hinn</span>
+            <h2>Control every touchpoint in a single collaborative canvas.</h2>
+            <p>
+              Replace spreadsheets and fragmented tools with a workflow that
+              keeps revenue, product, and success teams aligned on what matters
+              most.
+            </p>
+          </div>
 
-      <!-- Showcase teaser -->
-      <section id="showcase" class="py-12 sm:py-16">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-          <header class="mb-8 text-center">
-            <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-primary">Showcase</h2>
-            <p class="mt-2 text-sm text-secondary">A few recent projects.</p>
-          </header>
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
-            <a href="#" class="group relative block overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white transition-all duration-300 hover:ring-[color:var(--accent-soft)]">
-              <div class="h-24 sm:h-28 bg-neutral-200">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop" alt="Aurora Fitness" class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/40 to-transparent text-white">
-                <div class="text-xs font-medium">Aurora Fitness</div>
-              </div>
-            </a>
-            <a href="#" class="group relative block overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white transition-all duration-300 hover:ring-[color:var(--accent-soft)]">
-              <div class="h-24 sm:h-28 bg-neutral-200">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Summit Outdoors" class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/40 to-transparent text-white">
-                <div class="text-xs font-medium">Summit Outdoors</div>
-              </div>
-            </a>
-            <a href="#" class="group relative block overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white transition-all duration-300 hover:ring-[color:var(--accent-soft)]">
-              <div class="h-24 sm:h-28 bg-neutral-200">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1200&auto=format&fit=crop" alt="Bluegrain Coffee Co." class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/40 to-transparent text-white">
-                <div class="text-xs font-medium">Bluegrain Coffee Co.</div>
-              </div>
-            </a>
-            <a href="#" class="group relative block overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white transition-all duration-300 hover:ring-[color:var(--accent-soft)]">
-              <div class="h-24 sm:h-28 bg-neutral-200">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop" alt="Northstar Consulting" class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/40 to-transparent text-white">
-                <div class="text-xs font-medium">Northstar Consulting</div>
-              </div>
-            </a>
-            <a href="#" class="group relative block overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white transition-all duration-300 hover:ring-[color:var(--accent-soft)]">
-              <div class="h-24 sm:h-28 bg-neutral-200">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1200&auto=format&fit=crop" alt="Crescent Studio" class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/40 to-transparent text-white">
-                <div class="text-xs font-medium">Crescent Studio</div>
-              </div>
-            </a>
-            <a href="#" class="group relative block overflow-hidden rounded-xl ring-1 ring-neutral-200 bg-white transition-all duration-300 hover:ring-[color:var(--accent-soft)]">
-              <div class="h-24 sm:h-28 bg-neutral-200">
-                <img loading="lazy" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop" alt="Evergreen Nonprofit" class="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.03]"/>
-              </div>
-              <div class="absolute inset-x-0 bottom-0 p-2 bg-gradient-to-t from-black/40 to-transparent text-white">
-                <div class="text-xs font-medium">Evergreen Nonprofit</div>
-              </div>
-            </a>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="feature-icon">⚡</div>
+              <h3>Adaptive playbooks</h3>
+              <p>
+                Build reusable templates that automatically adjust deadlines and
+                owners when priorities change.
+              </p>
+              <ul>
+                <li>Conditional milestones &amp; branching logic</li>
+                <li>Auto-assign tasks based on capacity</li>
+                <li>Mirror updates into Salesforce &amp; HubSpot</li>
+              </ul>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">🔍</div>
+              <h3>Live journey analytics</h3>
+              <p>
+                Understand retention drivers with a narrow lens on every
+                customer cohort and executive stakeholder.
+              </p>
+              <ul>
+                <li>Segment performance by industry &amp; ARR</li>
+                <li>Forecast time-to-value automatically</li>
+                <li>Historical trendline &amp; anomaly alerts</li>
+              </ul>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">🤝</div>
+              <h3>Shared customer workspaces</h3>
+              <p>
+                Give customers a branded command center with docs, decisions, and
+                real-time chat in one place.
+              </p>
+              <ul>
+                <li>Secure guest access with audit logs</li>
+                <li>Co-edit agendas &amp; review recordings</li>
+                <li>Translate updates into 26 languages</li>
+              </ul>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">🧠</div>
+              <h3>AI teammate, built-in</h3>
+              <p>
+                Summarize calls, draft success plans, and suggest upsell moments
+                with Hinn Copilot.
+              </p>
+              <ul>
+                <li>Instant mutual action plan drafts</li>
+                <li>Smart risk detection &amp; escalations</li>
+                <li>Auto-generated executive updates</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
 
-      
+      <section id="workflow">
+        <div class="container">
+          <div class="workflow glass-card">
+            <div class="section-heading">
+              <span class="badge-light">Designed for alignment</span>
+              <h2>Ship onboarding like your team launches products.</h2>
+              <p>
+                Hinn coordinates every teammate around a single source of truth —
+                from kickoff to handoff.
+              </p>
+            </div>
+            <ol class="workflow-steps">
+              <li>
+                <div class="workflow-index">01</div>
+                <div class="workflow-copy">
+                  <h3>Launch from a tailored template</h3>
+                  <p>
+                    Import your best mutual action plans or start with our
+                    pre-built libraries for SaaS, fintech, or enterprise.
+                  </p>
+                  <span class="note">Minutes, not weeks to implement</span>
+                </div>
+              </li>
+              <li>
+                <div class="workflow-index">02</div>
+                <div class="workflow-copy">
+                  <h3>Automate the repetitive work</h3>
+                  <p>
+                    Auto-send status recaps, meeting notes, and stakeholder
+                    summaries without leaving your CRM.
+                  </p>
+                  <span class="note">Works with HubSpot, Salesforce, Slack</span>
+                </div>
+              </li>
+              <li>
+                <div class="workflow-index">03</div>
+                <div class="workflow-copy">
+                  <h3>Measure the right signals</h3>
+                  <p>
+                    Spot trends across cohorts, predict churn risk, and prove the
+                    impact of onboarding on revenue.
+                  </p>
+                  <span class="note">See value time, NPS, adoption in real-time</span>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
 
-      
+      <section id="stories">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-light">Trusted by growth leaders</span>
+            <h2>Teams shipping category-defining experiences choose Hinn.</h2>
+            <p>
+              We partner with customer success, RevOps, and product teams to
+              accelerate value for thousands of customers every quarter.
+            </p>
+          </div>
+          <div class="testimonial-grid">
+            <article class="testimonial-card">
+              <blockquote>
+                “Before Hinn we stitched together six tools and still missed key
+                milestones. Now every customer has a personalized journey and we
+                act on risk signals days earlier.”
+              </blockquote>
+              <div class="testimonial-meta">
+                <span class="testimonial-avatar">KB</span>
+                <div>
+                  <strong>Kai Bennett</strong>
+                  <span>VP Customer Success, LumenIQ</span>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <blockquote>
+                “Hinn’s playbooks let us onboard strategic accounts with the
+                precision of a product launch. Expansion revenue is up 42% in one
+                quarter.”
+              </blockquote>
+              <div class="testimonial-meta">
+                <span class="testimonial-avatar">SA</span>
+                <div>
+                  <strong>Sara Ahmed</strong>
+                  <span>Head of Revenue Operations, Pilotwave</span>
+                </div>
+              </div>
+            </article>
+            <article class="testimonial-card">
+              <blockquote>
+                “The executive status pages are a game changer. Our champions feel
+                confident sharing updates internally without our team jumping in
+                every time.”
+              </blockquote>
+              <div class="testimonial-meta">
+                <span class="testimonial-avatar">JG</span>
+                <div>
+                  <strong>Joel Garcia</strong>
+                  <span>Director of Implementation, Starkly</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-      
+      <section id="pricing">
+        <div class="container">
+          <div class="section-heading">
+            <span class="badge-light">Pricing</span>
+            <h2>Simple plans that grow with your customer motion.</h2>
+            <p>
+              Try Hinn free for 14 days. Upgrade or cancel any time.
+            </p>
+          </div>
+          <div class="pricing-grid">
+            <article class="pricing-card">
+              <div>
+                <h3>Starter</h3>
+                <div class="price">$49<span>/seat · month</span></div>
+              </div>
+              <ul class="feature-list">
+                <li>Unlimited playbooks &amp; templates</li>
+                <li>CRM sync every 6 hours</li>
+                <li>Slack &amp; Teams integrations</li>
+                <li>Customer workspaces with branding</li>
+              </ul>
+              <a class="button ghost" href="#cta">Start for free</a>
+            </article>
+            <article class="pricing-card highlight">
+              <div>
+                <h3>Growth</h3>
+                <div class="price">$89<span>/seat · month</span></div>
+              </div>
+              <ul class="feature-list">
+                <li>Advanced automations &amp; branching</li>
+                <li>Real-time CRM + BI sync</li>
+                <li>AI Copilot summaries</li>
+                <li>OKR &amp; outcome tracking dashboards</li>
+              </ul>
+              <a class="button primary" href="#cta">Start free trial</a>
+            </article>
+            <article class="pricing-card">
+              <div>
+                <h3>Enterprise</h3>
+                <div class="price">Let’s talk<span>Custom annual</span></div>
+              </div>
+              <ul class="feature-list">
+                <li>Dedicated customer architect</li>
+                <li>Private data residency options</li>
+                <li>SSO, SCIM, and granular permissions</li>
+                <li>Executive QBRs &amp; training programs</li>
+              </ul>
+              <a class="button ghost" href="contact.html">Talk to sales</a>
+            </article>
+          </div>
+        </div>
+      </section>
 
-      
-
-      
-
-      
-      
-
+      <section id="cta">
+        <div class="container">
+          <div class="cta-section glass-card">
+            <h2>Build journeys your customers brag about.</h2>
+            <p>
+              Join onboarding leaders who trust Hinn to accelerate time-to-value
+              and deepen long-term partnerships.
+            </p>
+            <div class="hero-actions" style="justify-content: center">
+              <a class="button primary" href="get-started.html">Create a workspace</a>
+              <a class="button ghost" href="blog.html">Explore playbooks</a>
+            </div>
+            <span class="badge-light"
+              >No credit card • SOC 2 Type II • Enterprise ready</span
+            >
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="border-t border-soft bg-white">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div class="grid gap-8 sm:gap-10 md:grid-cols-4">
-          <div class="md:col-span-2">
-            <a href="#" class="inline-flex items-center gap-2 font-semibold tracking-tight text-primary">
-              <svg width="24" height="24" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="rounded-md"><rect rx="12" width="64" height="64" fill="#d97759"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="36" fill="white">H</text></svg>
-              <span aria-hidden="true">Hinn.dev</span>
-            </a>
-            <p class="mt-4 text-sm text-secondary max-w-md">Monthly websites with design, hosting, and updates included. Launch fast, stay fresh, and grow without the heavy upfront cost.</p>
-            <div class="mt-5 flex items-center gap-3 text-tertiary">
-              <a href="./contact.html" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-accent-primary text-white text-sm hover:opacity-95 ring-1 ring-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-accent-primary">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M16 12H8m8 0l-3-3m3 3l-3 3"/></svg>
-                <span>Contact us</span>
-              </a>
-            </div>
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <a class="logo" href="#home">Hinn</a>
+            <p>
+              Software for revenue teams who turn onboarding into an unfair
+              advantage.
+            </p>
           </div>
-
-          <div>
-            <h3 class="text-sm font-semibold text-primary">Links</h3>
-            <ul class="mt-3 space-y-2 text-sm">
-              <li><a class="hover:text-accent-primary" href="#work">Work</a></li>
-              <li><a class="hover:text-accent-primary" href="#features">Services</a></li>
-              <li><a class="hover:text-accent-primary" href="#faq">FAQ</a></li>
-              <li><a class="hover:text-accent-primary" href="./contact.html">Contact</a></li>
-            </ul>
+          <div class="footer-links">
+            <strong>Product</strong>
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="get-started.html">Get started</a>
+            <a href="blog.html">Product updates</a>
           </div>
-
-          <div>
-            <h3 class="text-sm font-semibold text-primary">Contact</h3>
-            <ul class="mt-3 space-y-2 text-sm">
-              <li><a class="hover:text-accent-primary" href="mailto:hello@hinn.dev">hello@hinn.dev</a></li>
-              <li><span class="text-tertiary">Mon–Fri, 9am–5pm</span></li>
-            </ul>
-            <div class="mt-4 flex items-center gap-3 text-tertiary">
-              <a href="#" aria-label="Twitter" class="p-2 rounded-md ring-1 ring-neutral-200 hover:bg-panel">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.633 7.997c.013.18.013.361.013.541 0 5.518-4.201 11.875-11.875 11.875-2.363 0-4.556-.69-6.4-1.878.33.039.648.052.991.052a8.39 8.39 0 0 0 5.205-1.792 4.198 4.198 0 0 1-3.92-2.91c.255.039.51.065.779.065.374 0 .748-.052 1.096-.142a4.19 4.19 0 0 1-3.36-4.118v-.052c.548.304 1.183.49 1.856.516a4.184 4.184 0 0 1-1.868-3.49c0-.779.208-1.484.565-2.106a11.9 11.9 0 0 0 8.631 4.376 4.727 4.727 0 0 1-.104-.959 4.19 4.19 0 0 1 7.256-2.866 8.236 8.236 0 0 0 2.662-1.01 4.207 4.207 0 0 1-1.84 2.315 8.319 8.319 0 0 0 2.409-.648 9.016 9.016 0 0 1-2.095 2.173Z"/></svg>
-              </a>
-              <a href="#" aria-label="LinkedIn" class="p-2 rounded-md ring-1 ring-neutral-200 hover:bg-panel">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.983 3.5C4.983 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.483 1.12 2.483 2.5zM.5 8h4V24h-4V8zm7.5 0h3.837v2.178h.055c.535-1.016 1.844-2.09 3.798-2.09 4.06 0 4.81 2.673 4.81 6.151V24h-4v-6.776c0-1.617-.029-3.694-2.25-3.694-2.25 0-2.595 1.757-2.595 3.575V24h-4V8z"/></svg>
-              </a>
-            </div>
+          <div class="footer-links">
+            <strong>Company</strong>
+            <a href="contact.html">Contact</a>
+            <a href="mailto:hello@hinn.co">hello@hinn.co</a>
+            <a href="#">Security</a>
+            <a href="#">Status</a>
+          </div>
+          <div class="footer-links">
+            <strong>Resources</strong>
+            <a href="blog.html">Blog</a>
+            <a href="#stories">Customer stories</a>
+            <a href="#workflow">Onboarding checklists</a>
+            <a href="#">API &amp; docs</a>
           </div>
         </div>
-
-        <div class="mt-10 pt-6 border-t border-soft flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-tertiary">
-          <div>© <span id="y"></span> Hinn.dev. All rights reserved.</div>
-          <div class="flex items-center gap-4">
-            <a href="#" class="hover:text-accent-primary">Privacy</a>
-            <a href="#" class="hover:text-accent-primary">Terms</a>
-          </div>
+        <div class="footer-meta">
+          © <span id="year"></span> Hinn. Made with purpose for customer-obsessed
+          teams.
         </div>
       </div>
     </footer>
 
     <script>
-      // Year in footer
-      document.getElementById('y').textContent = new Date().getFullYear();
+      (function () {
+        const root = document.body;
+        const toggle = document.querySelector("[data-theme-toggle]");
+        if (!toggle) return;
 
-      // Mobile menu toggle
-      const menuButton = document.getElementById('menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const iconMenu = document.getElementById('icon-menu');
-      const iconClose = document.getElementById('icon-close');
+        const icon = toggle.querySelector("[data-icon]");
+        const label = toggle.querySelector("[data-label]");
 
-      function setMenu(open) {
-        if (open) {
-          mobileMenu.classList.remove('hidden');
-          menuButton.setAttribute('aria-expanded', 'true');
-          iconMenu.classList.add('hidden');
-          iconClose.classList.remove('hidden');
-        } else {
-          mobileMenu.classList.add('hidden');
-          menuButton.setAttribute('aria-expanded', 'false');
-          iconMenu.classList.remove('hidden');
-          iconClose.classList.add('hidden');
-        }
-      }
+        const applyTheme = (theme) => {
+          const isDark = theme === "dark";
+          root.dataset.theme = isDark ? "dark" : "light";
+          toggle.setAttribute("aria-pressed", String(isDark));
+          if (icon) icon.textContent = isDark ? "☀️" : "🌙";
+          if (label)
+            label.textContent = isDark
+              ? "Switch to light mode"
+              : "Switch to dark mode";
+          try {
+            localStorage.setItem("hinn-theme", isDark ? "dark" : "light");
+          } catch (error) {
+            console.warn("Theme persistence unavailable", error);
+          }
+        };
 
-      let open = false;
-      menuButton?.addEventListener('click', () => {
-        open = !open;
-        setMenu(open);
-      });
-
-      // Close menu when resizing to >= sm breakpoint
-      window.addEventListener('resize', () => {
-        if (window.innerWidth >= 640 && open) {
-          open = false;
-          setMenu(false);
-        }
-      });
-
-      // Desktop megamenus (Features, Tools) behavior
-      (function() {
-        const featuresContainer = document.getElementById('features-container');
-        const featuresButton = document.getElementById('features-button');
-        const featuresMenu = document.getElementById('features-menu');
-        const toolsContainer = document.getElementById('tools-container');
-        const toolsButton = document.getElementById('tools-button');
-        const toolsMenu = document.getElementById('tools-menu');
-
-        let featuresCloseTimer = null;
-        let toolsCloseTimer = null;
-
-        function openMenu(button, menu) {
-          if (!button || !menu) return;
-          button.setAttribute('aria-expanded', 'true');
-          menu.classList.remove('hidden');
-        }
-        function closeMenu(button, menu) {
-          if (!button || !menu) return;
-          button.setAttribute('aria-expanded', 'false');
-          menu.classList.add('hidden');
+        let storedTheme;
+        try {
+          storedTheme = localStorage.getItem("hinn-theme");
+        } catch (error) {
+          storedTheme = null;
         }
 
-        function setupMenu(container, button, menu, closeTimerRefName) {
-          if (!container || !button || !menu) return;
-          container.addEventListener('mouseenter', () => {
-            if (window[closeTimerRefName]) { clearTimeout(window[closeTimerRefName]); window[closeTimerRefName] = null; }
-            openMenu(button, menu);
-          });
-          container.addEventListener('mouseleave', () => {
-            window[closeTimerRefName] = setTimeout(() => closeMenu(button, menu), 220);
-          });
-          button.addEventListener('click', (e) => {
-            e.preventDefault();
-            const expanded = button.getAttribute('aria-expanded') === 'true';
-            if (expanded) closeMenu(button, menu); else openMenu(button, menu);
-          });
+        if (!storedTheme && window.matchMedia) {
+          storedTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
         }
 
-        setupMenu(featuresContainer, featuresButton, featuresMenu, 'featuresCloseTimer');
-        setupMenu(toolsContainer, toolsButton, toolsMenu, 'toolsCloseTimer');
+        applyTheme(storedTheme === "dark" ? "dark" : "light");
 
-        // Close when clicking outside
-        document.addEventListener('click', (e) => {
-          const t = e.target;
-          const inFeatures = featuresContainer && featuresContainer.contains(t);
-          const inTools = toolsContainer && toolsContainer.contains(t);
-          if (!inFeatures) closeMenu(featuresButton, featuresMenu);
-          if (!inTools) closeMenu(toolsButton, toolsMenu);
+        toggle.addEventListener("click", () => {
+          const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+          applyTheme(nextTheme);
         });
       })();
 
-      // Sticky tabs: robust active switching on scroll using scroll position thresholds
-      (function() {
-        const tablist = document.getElementById('section-tabs');
-        if (!tablist) return;
-        const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
-        const targetIds = ['work','create','features','faq'];
-        const sections = targetIds
-          .map(id => document.getElementById(id))
-          .filter(Boolean);
-
-        let activeId = null;
-        const offsetPx = 120; // compensate for sticky header/tabs
-
-        function setActiveTab(id) {
-          if (activeId === id) return;
-          activeId = id;
-          tabs.forEach(t => {
-            const on = t.getAttribute('data-target') === id;
-            t.setAttribute('aria-selected', on ? 'true' : 'false');
-            t.classList.toggle('bg-[color:var(--accent-subtle)]', on);
-            t.classList.toggle('text-accent-primary', on);
-            t.classList.toggle('border', true);
-            t.classList.toggle('border-[color:var(--accent-soft)]', on);
-            t.classList.toggle('border-transparent', !on);
-            t.classList.toggle('font-medium', on);
-          });
-        }
-
-        function computeActive() {
-          const current = (window.scrollY || window.pageYOffset) + offsetPx;
-          let candidate = sections[0]?.id || null;
-          for (const el of sections) {
-            const top = el.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
-            if (top <= current + 1) candidate = el.id; // last section whose top is above threshold
-          }
-          if (candidate) setActiveTab(candidate);
-        }
-
-        // init and bind
-        computeActive();
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            ticking = true;
-            window.requestAnimationFrame(() => { computeActive(); ticking = false; });
-          }
-        }, { passive: true });
-        window.addEventListener('resize', computeActive, { passive: true });
-
-        // Click -> smooth scroll and set active immediately
-        tabs.forEach(t => t.addEventListener('click', (ev) => {
-          const id = t.getAttribute('data-target');
-          if (!id) return;
-          const el = document.getElementById(id);
-          if (el) {
-            ev.preventDefault();
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            setActiveTab(id);
-          }
-        }));
-      })();
-
-      // Typed hero subtitle (reduced-motion aware)
-      (function() {
-        const el = document.getElementById('typed-text');
-        if (!el) return;
-        const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-        const phrases = ['website design', 'managed hosting', 'monthly updates', 'priority support'];
-        if (mq.matches) { el.textContent = phrases[0]; return; }
-
-        let i = 0; // phrase index
-        let deleting = false;
-        let text = '';
-
-        function tick() {
-          const target = phrases[i % phrases.length];
-          const typingSpeed = deleting ? 40 : 90;
-          const pauseAtFull = 1200;
-          const pauseAtEmpty = 400;
-
-          if (!deleting && text === target) {
-            setTimeout(() => { deleting = true; tick(); }, pauseAtFull);
-            return;
-          }
-          if (deleting && text === '') {
-            i = (i + 1) % phrases.length;
-            deleting = false;
-            setTimeout(tick, pauseAtEmpty);
-            return;
-          }
-
-          text = deleting ? target.slice(0, text.length - 1) : target.slice(0, text.length + 1);
-          el.textContent = text;
-          setTimeout(tick, typingSpeed);
-        }
-
-        tick();
-      })();
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
