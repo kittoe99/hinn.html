@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Antler Installers • Appliance Delivery & Installation in Denver, CO</title>
+  <meta name="description" content="White‑glove appliance delivery, installation, and repair in Denver, CO. We install safely, remove packaging, and leave your home ready to enjoy. Book a service today." />
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0f172a; /* slate-900 */
+      --panel:#111827; /* gray-900 */
+      --muted:#94a3b8; /* slate-400 */
+      --text:#e5e7eb; /* gray-200 */
+      --brand:#22c55e; /* green-500 */
+      --brand-600:#16a34a;
+      --ring: rgba(34,197,94,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji"}
+    body{color:var(--text);background:radial-gradient(1200px 800px at 80% -10%,#1e293b 0%,#0b1220 45%,#070b14 100%), var(--bg);}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;background:rgba(7,11,20,.7);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06);z-index:40}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
+    .antler{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 200deg at 50% 50%, #22c55e, #16a34a 40%, #15803d 60%, #22c55e 90%);display:grid;place-items:center;box-shadow:0 10px 30px rgba(34,197,94,.25)}
+    .antler:before{content:"";width:16px;height:16px;border:3px solid #0a0f1c;border-top-color:transparent;border-left-color:transparent;transform:rotate(45deg);border-radius:3px}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#05120a;padding:12px 16px;border-radius:10px;font-weight:700;transition:.2s;border:1px solid rgba(0,0,0,.08);box-shadow:0 6px 20px var(--ring)}
+    .cta:hover{background:var(--brand-600);transform:translateY(-1px)}
+
+    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding:56px 0}
+    .hero h1{font-size:clamp(28px, 4.2vw, 54px);line-height:1.05;margin:0 0 14px}
+    .hero p{color:var(--muted);font-size:clamp(15px, 1.6vw, 18px);margin:0 0 24px}
+    .badges{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 26px}
+    .badge{font-size:12px;color:#a3e3b9;background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);padding:6px 10px;border-radius:999px}
+
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .hero-card{padding:18px;background:#0b1220;border-radius:14px;border:1px solid rgba(255,255,255,.06)}
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .hero-item{padding:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px}
+    .hero-item h4{margin:0 0 6px;font-size:14px;color:#c9f3d7}
+    .hero-item p{margin:0;font-size:13px;color:#b6c2d2}
+
+    section{padding:64px 0}
+    h2{font-size:26px;margin:0 0 16px}
+    .muted{color:var(--muted)}
+
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .service{padding:18px} .service h3{margin:0 0 8px;font-size:18px}
+    .service p{margin:0;color:#c7d2e0;font-size:14px}
+
+    .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:24px}
+    form{display:grid;gap:12px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.12);background:#0b1220;color:var(--text)}
+    textarea{min-height:120px;resize:vertical}
+    .split{display:flex;gap:12px}
+
+    footer{padding:28px 0;border-top:1px solid rgba(255,255,255,.06);color:#93a0b3}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .stat{padding:16px;border:1px solid rgba(255,255,255,.06);border-radius:12px;background:rgba(255,255,255,.03)}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr;gap:20px}
+      .services{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      header{position:static}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="antler" aria-hidden="true"></div>
+        <div>Antler Installers</div>
+      </div>
+      <a class="cta" href="#book" aria-label="Book a service request">Book Service</a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="badges">
+          <span class="badge">Denver, CO • 50‑mile radius</span>
+          <span class="badge">White‑glove Installation</span>
+          <span class="badge">Packaging Removal Included</span>
+        </div>
+        <h1>Appliance Delivery, Installation, and Repair—done right.</h1>
+        <p>Experience a seamlessly upgraded home with professional delivery and installation. We set up your new appliance safely, remove all packaging, and leave your space clean and fully functional—so you don’t lift a finger.</p>
+        <div class="grid-2">
+          <a class="cta" href="#book">Book a Service</a>
+          <a class="cta" href="tel:7208429167" style="background:#0b1220;color:#cde7d6;border-color:rgba(34,197,94,.35)">Call: 720‑842‑9167</a>
+        </div>
+      </div>
+      <div class="panel hero-card">
+        <div class="hero-grid">
+          <div class="hero-item">
+            <h4>Delivery & Installation</h4>
+            <p>Professional, safe installs for kitchen & laundry appliances.</p>
+          </div>
+          <div class="hero-item">
+            <h4>Repair Services</h4>
+            <p>Diagnostics and fixes to keep your appliances running.</p>
+          </div>
+          <div class="hero-item">
+            <h4>White‑Glove Care</h4>
+            <p>We level, test, and remove all packaging. Clean finish.</p>
+          </div>
+          <div class="hero-item">
+            <h4>On‑site Service</h4>
+            <p>We come to you—homes, condos, and small businesses.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Services</h2>
+      <p class="muted">Appliance Delivery & Installation • Appliance Repair</p>
+      <div class="services">
+        <div class="panel service">
+          <h3>Appliance Delivery & Installation</h3>
+          <p>From fridges and ranges to washers and dryers—expert delivery, safe hookups, leveling, and testing. We handle haul‑in and packaging removal.</p>
+        </div>
+        <div class="panel service">
+          <h3>Appliance Repair</h3>
+          <p>Common issues diagnosed and repaired. If replacement is best, we’ll advise and can handle the swap‑out.</p>
+        </div>
+        <div class="panel service">
+          <h3>White‑Glove Extras</h3>
+          <p>Site protection, cleanup, and final walkthrough so everything works and looks right before we leave.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="coverage">
+      <h2>Service Area</h2>
+      <div class="grid-2">
+        <div class="panel stat">
+          <strong>Primary Location</strong>
+          <div class="muted">Denver, Colorado, United States</div>
+        </div>
+        <div class="panel stat">
+          <strong>Coverage Radius</strong>
+          <div class="muted">Up to 50 miles • Onsite service</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="book">
+      <h2>Book a Service Request</h2>
+      <p class="muted">Preferred contact method: Email</p>
+      <div class="contact-grid">
+        <form class="panel" action="mailto:Antlerssupport@gmail.com" method="post" enctype="text/plain">
+          <div class="split">
+            <input required name="name" placeholder="Your name" />
+            <input required name="phone" placeholder="Phone (optional)" />
+          </div>
+          <input required type="email" name="email" placeholder="Email" />
+          <div class="split">
+            <input required name="city" placeholder="City" value="Denver" />
+            <input name="zip" placeholder="ZIP code" />
+          </div>
+          <textarea required name="details" placeholder="Tell us about your appliance and the service you need"></textarea>
+          <button class="cta" type="submit">Request Service via Email</button>
+        </form>
+        <div class="panel" style="padding:18px">
+          <h3>Contact</h3>
+          <p>Email: <a href="mailto:Antlerssupport@gmail.com">Antlerssupport@gmail.com</a></p>
+          <p>Phone: <a href="tel:7208429167">720‑842‑9167</a></p>
+          <p>Hours: Mon–Sat • By appointment</p>
+          <hr style="border-color:rgba(255,255,255,.06);margin:16px 0">
+          <h3>Why choose us?</h3>
+          <ul class="muted">
+            <li>White‑glove handling and cleanup</li>
+            <li>Safe, code‑aware installation</li>
+            <li>Friendly, reliable technicians</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div class="antler" aria-hidden="true" style="width:24px;height:24px"></div>
+        <strong>Antler Installers</strong>
+      </div>
+      <div>© <span id="y"></span> Antler Installers • Denver, CO</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
